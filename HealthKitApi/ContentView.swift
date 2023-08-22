@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var authStateManager = FirebaseAuthStateManager()
+    @State var isShowSheet = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            if authStateManager.signInState == false {
+                // Sign-Out状態なのでSign-Inボタンを表示する
+                Button(action: {
+                    self.isShowSheet.toggle()
+                }) {
+                    Text("Sign-In")
+                }
+            } else {
+                // Sign-In状態なのでSign-Outボタンを表示する
+                Button(action: {
+                    authStateManager.signOut()
+                }) {
+                    Text("Sign-Out")
+                }
+            }
         }
-        .padding()
+        .sheet(isPresented: $isShowSheet) {
+            FirebaseUIView()
+        }
     }
 }
 
