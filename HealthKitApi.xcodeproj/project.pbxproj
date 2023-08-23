@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		433067FD08318FD43A6CB15F /* Pods_HealthKitApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */; };
+		E96CA9972A96599E002CBD44 /* UserConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA9962A96599E002CBD44 /* UserConfirm.swift */; };
 		E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */; };
 		E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80D2A95045700D5D502 /* ContentView.swift */; };
 		E9B3E8102A95045C00D5D502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B3E80F2A95045C00D5D502 /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 		6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthKitApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7179B2B34C48B1E4CA87841F /* Pods-HealthKitApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.debug.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.debug.xcconfig"; sourceTree = "<group>"; };
 		C5D2C371A4DABD0C2EFC84A3 /* Pods-HealthKitApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.release.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.release.xcconfig"; sourceTree = "<group>"; };
+		E96CA9952A965528002CBD44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E96CA9962A96599E002CBD44 /* UserConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirm.swift; sourceTree = "<group>"; };
 		E9B3E8082A95045700D5D502 /* HealthKitApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthKitApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitApiApp.swift; sourceTree = "<group>"; };
 		E9B3E80D2A95045700D5D502 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		E9B3E80A2A95045700D5D502 /* HealthKitApi */ = {
 			isa = PBXGroup;
 			children = (
+				E96CA9952A965528002CBD44 /* Info.plist */,
 				E9B3E8192A95048100D5D502 /* GoogleService-Info.plist */,
 				E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */,
 				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
@@ -88,6 +92,7 @@
 				E9B3E8112A95045C00D5D502 /* Preview Content */,
 				E9B3E81B2A95086600D5D502 /* FirebaseAuthStateManager.swift */,
 				E9B3E81D2A95089200D5D502 /* FirebaseUIView.swift */,
+				E96CA9962A96599E002CBD44 /* UserConfirm.swift */,
 			);
 			path = HealthKitApi;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */,
 				E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
+				E96CA9972A96599E002CBD44 /* UserConfirm.swift in Sources */,
 				E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +357,7 @@
 				DEVELOPMENT_TEAM = GKPH74TZYD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthKitApi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -381,6 +388,7 @@
 				DEVELOPMENT_TEAM = GKPH74TZYD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HealthKitApi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
