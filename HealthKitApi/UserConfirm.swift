@@ -12,7 +12,6 @@ import FirebaseFirestore
 
 struct UserConfirm: View {
     
-//    ViewController()
     @State var uidText = "ここにIDが表示される"
     @State var testInputText = ""
     @State var fetchText = ""
