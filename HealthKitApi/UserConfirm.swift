@@ -14,6 +14,7 @@ struct UserConfirm: View {
     
     @State var testInputText = ""
     @State var fetchText = ""
+    // ページ遷移しないとドキュメント更新になってしまう...
     @State var sleepDoqument = UUID()
     @State var sleepStr = ""
     
