@@ -15,6 +15,8 @@ struct UserConfirm: View {
     @State var uidText = "ここにIDが表示される"
     @State var testInputText = ""
     @State var fetchText = ""
+    @State var sleepDoqument = "夢のドキュメント"
+    @State var sleepStr = ""
     
     let userID = Auth.auth().currentUser!.uid
     
@@ -24,19 +26,35 @@ struct UserConfirm: View {
         }
         
         VStack {
-                TextField(text: $testInputText) {
-                    Text("input Text")
-                }
-                .frame(width: UIScreen.main.bounds.width * 0.95)
-                Button {
-                    Firestore.firestore().collection("users").document(uidText)
-                        .setData(
-                            ["userID": userID,
-                             "testText": testInputText]
-                        )
-                } label: {
-                    Text("Save")
-                }
+            TextField(text: $testInputText) {
+                Text("登録する内容...")
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+            
+            TextField(text: $sleepStr) {
+                Text("夢の保存用...")
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+        
+            Button {
+                Firestore.firestore().collection("users").document(userID)
+                    .setData(
+                        ["userID": userID,
+                         "testText": testInputText]
+                    )
+            } label: {
+                Text("ユーザ情報の登録。")
+            }
+            Button {
+                Firestore.firestore().collection("sleepContents").document(sleepDoqument)
+                    .setData(
+                        ["sleep": sleepStr]
+                    )
+            } label: {
+                Text("夢の登録。")
+            }
+        }
     }
 }
