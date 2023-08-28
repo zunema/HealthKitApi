@@ -12,10 +12,9 @@ import FirebaseFirestore
 
 struct UserConfirm: View {
     
-    @State var uidText = "ここにIDが表示される"
     @State var testInputText = ""
     @State var fetchText = ""
-    @State var sleepDoqument = "夢のドキュメント"
+    @State var sleepDoqument = UUID()
     @State var sleepStr = ""
     
     let userID = Auth.auth().currentUser!.uid
@@ -48,7 +47,7 @@ struct UserConfirm: View {
                 Text("ユーザ情報の登録。")
             }
             Button {
-                Firestore.firestore().collection("sleepContents").document(sleepDoqument)
+                Firestore.firestore().collection("sleepContents").document(sleepDoqument.uuidString)
                     .setData(
                         ["sleep": sleepStr]
                     )
