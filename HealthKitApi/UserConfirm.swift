@@ -17,7 +17,6 @@ struct UserConfirm: View {
     // ページ遷移しないとドキュメント更新になってしまう...
     @State var sleepDoqument = UUID()
     @State var sleepStr = ""
-    // とりあえずここでヘルスケアの情報を取得できる処理を書いてみようかな
     
     let userID = Auth.auth().currentUser!.uid
     
