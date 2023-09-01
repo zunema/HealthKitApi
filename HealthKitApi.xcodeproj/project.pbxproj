@@ -19,6 +19,7 @@
 		E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E81D2A95089200D5D502 /* FirebaseUIView.swift */; };
 		E9C809A52AA0D985004C8C01 /* HealthKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C809A42AA0D985004C8C01 /* HealthKitViewModel.swift */; };
 		E9C809A72AA0DAB6004C8C01 /* SleepItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C809A62AA0DAB6004C8C01 /* SleepItemList.swift */; };
+		E9D79BC62AA257CD00C69FE1 /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D79BC52AA257CD00C69FE1 /* SleepContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E9B3E81D2A95089200D5D502 /* FirebaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUIView.swift; sourceTree = "<group>"; };
 		E9C809A42AA0D985004C8C01 /* HealthKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitViewModel.swift; sourceTree = "<group>"; };
 		E9C809A62AA0DAB6004C8C01 /* SleepItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItemList.swift; sourceTree = "<group>"; };
+		E9D79BC52AA257CD00C69FE1 /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E991E7B52A97A658008FAA14 /* ViewController.swift */,
 				E9C809A42AA0D985004C8C01 /* HealthKitViewModel.swift */,
 				E9C809A62AA0DAB6004C8C01 /* SleepItemList.swift */,
+				E9D79BC52AA257CD00C69FE1 /* SleepContentView.swift */,
 			);
 			path = HealthKitApi;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirm.swift in Sources */,
 				E9C809A52AA0D985004C8C01 /* HealthKitViewModel.swift in Sources */,
+				E9D79BC62AA257CD00C69FE1 /* SleepContentView.swift in Sources */,
 				E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
