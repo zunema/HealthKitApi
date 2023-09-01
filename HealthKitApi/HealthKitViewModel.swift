@@ -40,12 +40,14 @@ class HealthKitViewModel: ObservableObject, Identifiable {
                     // 取得したデータを１件ずつ SleepItemList 構造体に格納
                     // SleepItemListは、sleepData配列に追加します。ViewのListでは、この sleepData配列を参照して睡眠状態を表示します。
                     for item in tmpResults {
+                        
                         let sleepItem = SleepItemList(
                             id: item.uuid.uuidString,
                             startDataTime: item.startDate,
                             endDateTime: item.endDate,
                             sleepStatus: item.value.description
                         )
+                        
                         self.sleepData.append(sleepItem)
                     }
                 }
