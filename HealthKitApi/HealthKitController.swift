@@ -1,0 +1,41 @@
+//
+//  HealthKitController.swift
+//  HealthKitApi
+//
+//  Created by 飯尾悠也 on 2023/09/02.
+//
+
+import SwiftUI
+import HealthKit
+
+class HealthKitController: ObservableObject, Identifiable {
+    
+    var healthStore: HKHealthStore!
+    
+    // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
+    let allTypes = Set([HKObjectType.workoutType(),
+                        HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                        HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
+                        HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                        HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                        HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!])
+    
+    init?() {
+        if !HKHealthStore.isHealthDataAvailable() {
+            return nil
+        }
+
+        self.healthStore = HKHealthStore()
+        
+        // 許可要求を発行
+        self.healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+            if !success {
+                // エラーが発生した場合の処理を実装
+                print("エラー発生してる。。。")
+            } else {
+                print("成功！")
+            }
+        }
+    }
+    
+}
