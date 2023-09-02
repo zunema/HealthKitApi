@@ -11,6 +11,7 @@ import HealthKit
 class HealthKitController: ObservableObject, Identifiable {
     
     var healthStore: HKHealthStore!
+    var permissionMessage: String = ""
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
@@ -31,11 +32,16 @@ class HealthKitController: ObservableObject, Identifiable {
         self.healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
             if !success {
                 // エラーが発生した場合の処理を実装
+                self.permissionMessage = "許可要求失敗。。。"
                 print("エラー発生してる。。。")
             } else {
+                self.permissionMessage = "許可要求成功!!"
                 print("成功！")
             }
         }
+    }
+    
+    func getPermissionConfirmation() {
     }
     
 }

@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseCore
 import FirebaseAuthUI
 import FirebaseFirestore
+import HealthKit
 
 struct UserConfirm: View {
     
@@ -24,9 +25,7 @@ struct UserConfirm: View {
         NavigationView {
             VStack {
                 Text(userID)
-            }
             
-            VStack {
                 TextField(text: $testInputText) {
                     Text("登録する内容...")
                 }
@@ -56,10 +55,8 @@ struct UserConfirm: View {
                 } label: {
                     Text("夢の登録。")
                 }
-            }
             
-            VStack {
-                NavigationLink(destination: SleepContentView(healthKitVM: HealthKitViewModel())){
+                NavigationLink(destination: HealthKitContentView(healthKitController: HealthKitController()!)){
                     Text("healthKit参照へ...")
                 }
             }

@@ -9,12 +9,14 @@ import SwiftUI
 import Combine
 import HealthKit
 
-struct SleepContentView: View {
+struct HealthKitContentView: View {
     
 //    @ObservedObject var healthKitVM: HealthKitViewModel
+    @ObservedObject var healthKitController: HealthKitController
     
     var body: some View {
         VStack {
+            Text(healthKitController.permissionMessage)
         }
     }
 }
