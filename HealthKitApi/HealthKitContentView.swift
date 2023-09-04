@@ -11,7 +11,6 @@ import HealthKit
 
 struct HealthKitContentView: View {
     
-//    @ObservedObject var healthKitVM: HealthKitViewModel
     @ObservedObject var healthKitController: HealthKitController
     
     var body: some View {
