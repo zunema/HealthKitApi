@@ -21,6 +21,15 @@ class HealthKitController: ObservableObject, Identifiable {
                         HKObjectType.quantityType(forIdentifier: .heartRate)!,
                         HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!])
     
+    // 睡眠用
+    // 1. データのタイプを指定
+    let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
+    
+    // 2. 開始/終了時刻
+//    let startDate = Calendar.current.date(bySettingHour: 01:00, minute: 00, second: 0, of: Date())!
+//    let endDate = Calendar.current.date(bySettingHour: 07:00, minute: 00, second: 0, of: Date())!
+
+    
     init?() {
         if !HKHealthStore.isHealthDataAvailable() {
             return nil
