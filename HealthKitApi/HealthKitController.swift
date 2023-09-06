@@ -28,6 +28,14 @@ class HealthKitController: ObservableObject, Identifiable {
     // 2. 開始/終了時刻
     // let startDate = Calendar.current.date(bySettingHour: 01:00, minute: 00, second: 0, of: Date())!
     // let endDate = Calendar.current.date(bySettingHour: 07:00, minute: 00, second: 0, of: Date())!
+    
+    // 3. 上記の要素を一つのデータとしてまとめる
+    //    let sample = HKCategorySample(
+    //        type: sleepType,
+    //        value: HKCategoryValueSleepAnalysis.inBed.rawValue,
+    //        start: startDate,
+    //        end: endDate
+    //    )
 
     
     init?() {
