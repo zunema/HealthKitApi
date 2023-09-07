@@ -36,6 +36,15 @@ class HealthKitController: ObservableObject, Identifiable {
     //        start: startDate,
     //        end: endDate
     //    )
+    
+    // 4. 上記の要素を一つのデータとしてまとめる
+    //    self.healthStore.save(sample) { success, error in
+    //        if success {
+    //            print("success")
+    //        } else {
+    //            print("failed")
+    //        }
+    //    }
 
     
     init?() {
