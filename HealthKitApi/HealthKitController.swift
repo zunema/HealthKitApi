@@ -59,7 +59,7 @@ class HealthKitController: ObservableObject, Identifiable {
             if !success {
                 // エラーが発生した場合の処理を実装
                 self.permissionMessage = "許可要求失敗。。"
-                print("エラー発生してる。。。")
+                print("エラー発生してる。。")
             } else {
                 self.permissionMessage = "許可要求成功!!"
                 print("成功！")
