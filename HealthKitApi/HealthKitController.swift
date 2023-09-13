@@ -58,11 +58,11 @@ class HealthKitController: ObservableObject, Identifiable {
         self.healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
             if !success {
                 // エラーが発生した場合の処理を実装
-                self.permissionMessage = "許可要求失敗。。"
-                print("エラー発生してる。。")
+                self.permissionMessage = "許可要求失敗"
+                print("エラー発生")
             } else {
-                self.permissionMessage = "許可要求成功!!"
-                print("成功！")
+                self.permissionMessage = "許可要求成功"
+                print("成功")
             }
         }
     }
