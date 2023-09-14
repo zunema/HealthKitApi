@@ -27,13 +27,13 @@ struct UserConfirm: View {
                 Text(userID)
             
                 TextField(text: $testInputText) {
-                    Text("登録する内容...")
+                    Text("登録する内容")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 
                 TextField(text: $sleepStr) {
-                    Text("夢の保存用...")
+                    Text("夢の保存用")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -45,7 +45,7 @@ struct UserConfirm: View {
                              "testText": testInputText]
                         )
                 } label: {
-                    Text("ユーザ情報の登録。")
+                    Text("ユーザ情報の登録")
                 }
                 Button {
                     Firestore.firestore().collection("sleepContents").document(sleepDoqument.uuidString)
@@ -53,11 +53,11 @@ struct UserConfirm: View {
                             ["sleep": sleepStr]
                         )
                 } label: {
-                    Text("夢の登録。")
+                    Text("夢の登録")
                 }
             
                 NavigationLink(destination: HealthKitContentView(healthKitController: HealthKitController()!)){
-                    Text("healthKit参照へ...")
+                    Text("healthKit参照へ")
                 }
             }
         }
