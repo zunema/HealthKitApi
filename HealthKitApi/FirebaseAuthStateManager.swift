@@ -14,10 +14,10 @@ class FirebaseAuthStateManager: ObservableObject {
     init() {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let _ = user {
-                print("Sign-in")
+                print("サインイン")
                 self.signInState = true
             } else {
-                print("Sign-out")
+                print("サインアウト")
                 self.signInState = false
             }
         }
@@ -31,7 +31,7 @@ class FirebaseAuthStateManager: ObservableObject {
         do {
             try Auth.auth().signOut()
         } catch {
-            print("Error")
+            print("エラー")
         }
     }
 }
