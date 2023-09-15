@@ -18,7 +18,7 @@ struct ContentView: View {
                 Button(action: {
                     self.isShowSheet.toggle()
                 }) {
-                    Text("Sign-In")
+                    Text("サインイン")
                 }
             } else {
                 UserConfirm()
@@ -26,7 +26,7 @@ struct ContentView: View {
                 Button(action: {
                     authStateManager.signOut()
                 }) {
-                    Text("Sign-Out")
+                    Text("サインアウト")
                 }
             }
         }
