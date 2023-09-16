@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if authStateManager.signInState == false {
-                // Sign-Out状態なのでSign-Inボタンを表示する
+                // サインアウト状態なのでサインインボタンを表示する
                 Button(action: {
                     self.isShowSheet.toggle()
                 }) {
