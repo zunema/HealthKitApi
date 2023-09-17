@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             } else {
                 UserConfirm()
-                // Sign-In状態なのでSign-Outボタンを表示する
+                // サインイン状態なのでサインアウトボタンを表示する
                 Button(action: {
                     authStateManager.signOut()
                 }) {
