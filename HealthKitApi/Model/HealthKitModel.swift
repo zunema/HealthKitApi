@@ -8,10 +8,12 @@
 import SwiftUI
 import HealthKit
 
-class HealthKitController: ObservableObject, Identifiable {
+class HealthKitModel: ObservableObject, Identifiable {
     
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
+    var permissionFlg: Bool = false
+    var textConfirm: String = "確認OK。"
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
@@ -62,6 +64,7 @@ class HealthKitController: ObservableObject, Identifiable {
                 print("エラー発生")
             } else {
                 self.permissionMessage = "許可要求成功"
+                self.permissionFlg = true
                 print("成功")
             }
         }
