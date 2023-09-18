@@ -73,4 +73,25 @@ class HealthKitModel: ObservableObject, Identifiable {
     func getPermissionConfirmation() {
     }
     
+    func getSleepAnalysis(fallingAsleepTime: Date, wakeUpTime: Date)  {
+            let query = HKSampleQuery(sampleType: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!,
+                                      predicate: HKQuery.predicateForSamples(withStart: fallingAsleepTime, end: wakeUpTime, options: []),
+                                      limit: HKObjectQueryNoLimit,
+                                      sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
+                
+                guard error == nil else { print("error"); return }
+                // ここで取得した睡眠データを扱える形に整形する
+//                if let results = results as? [HKCategorySample] {
+//                    let reversedResults = results.reversed()
+//                    DispatchQueue.main.async {
+//                        reversedResults.map { data in
+//                            print(data.value.description)
+//                            // 睡眠データを使った処理を書く
+//                        }
+//                    }
+//                }
+            }
+            healthStore.execute(query)
+        }
+    
 }
