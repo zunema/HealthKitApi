@@ -11,13 +11,14 @@ import FirebaseAuthUI
 import FirebaseFirestore
 import HealthKit
 
-struct UserConfirm: View {
+struct UserConfirmView: View {
     
     @State var testInputText = ""
     @State var fetchText = ""
     // ページ遷移しないとドキュメント更新になってしまう...
     @State var sleepDoqument = UUID()
     @State var sleepStr = ""
+    @ObservedObject var healthKitModel = HealthKitModel()!
     
     let userID = Auth.auth().currentUser!.uid
     
@@ -56,7 +57,7 @@ struct UserConfirm: View {
                     Text("夢の登録")
                 }
             
-                NavigationLink(destination: HealthKitContentView(healthKitController: HealthKitController()!)){
+                NavigationLink(destination: HealthKitContentView(healthKitModel: healthKitModel)){
                     Text("healthKit参照へ")
                 }
             }
