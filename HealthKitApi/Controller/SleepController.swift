@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-class ViewController: UIViewController {
+class SleepController: UIViewController {
     
     var db: Firestore!
     
