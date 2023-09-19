@@ -18,7 +18,6 @@ struct UserConfirmView: View {
     // ページ遷移しないとドキュメント更新になってしまう...
     @State var sleepDoqument = UUID()
     @State var sleepStr = ""
-    @ObservedObject var healthKitModel = HealthKitModel()!
     
     let userID = Auth.auth().currentUser!.uid
     
@@ -57,9 +56,15 @@ struct UserConfirmView: View {
                     Text("夢の登録")
                 }
             
-                NavigationLink(destination: HealthKitContentView(healthKitModel: healthKitModel)){
+//                NavigationLink(destination: HealthKitContentView(){
+//                    Text("healthKit参照へ")
+//                }
+                NavigationLink {
+                    HealthKitContentView()
+                } label: {
                     Text("healthKit参照へ")
                 }
+
             }
         }
     }
