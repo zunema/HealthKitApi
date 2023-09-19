@@ -21,6 +21,8 @@ struct SleepContentView: View {
         return fmt
     }()
     
+//    healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
+    
     var body: some View {
         NavigationView {
             VStack {
