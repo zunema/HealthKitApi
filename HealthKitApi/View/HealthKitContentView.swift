@@ -11,11 +11,17 @@ import HealthKit
 
 struct HealthKitContentView: View {
     
-    @ObservedObject var healthKitModel: HealthKitModel
+    @ObservedObject var healthKitModel = HealthKitModel()!
     @State private var fallingAsleepTime = Date()
-    @State private var wakeUpTime = Date()
-
+    @State private var wakeUpTime = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
+//    init() {
+//        healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
+//        print("入眠時刻")
+//        print(fallingAsleepTime)
+//        print("起床時刻")
+//        print(wakeUpTime)
+//    }
     
     var body: some View {
         VStack {
