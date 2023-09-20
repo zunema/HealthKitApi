@@ -55,10 +55,7 @@ struct UserConfirmView: View {
                 } label: {
                     Text("夢の登録")
                 }
-            
-//                NavigationLink(destination: HealthKitContentView(){
-//                    Text("healthKit参照へ")
-//                }
+
                 NavigationLink {
                     HealthKitContentView()
                 } label: {
