@@ -79,9 +79,10 @@ class HealthKitModel: ObservableObject, Identifiable {
                                       limit: HKObjectQueryNoLimit,
                                       sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
                 
-                guard error == nil else { print("error"); return }
+                guard error == nil else { print("睡眠データを取得失敗"); return }
                 // ここで取得した睡眠データを扱える形に整形する
-//                if let results = results as? [HKCategorySample] {
+                if let results = results as? [HKCategorySample] {
+                    print("取得成功!!")
 //                    let reversedResults = results.reversed()
 //                    DispatchQueue.main.async {
 //                        reversedResults.map { data in
@@ -89,7 +90,7 @@ class HealthKitModel: ObservableObject, Identifiable {
 //                            // 睡眠データを使った処理を書く
 //                        }
 //                    }
-//                }
+                }
             }
             healthStore.execute(query)
         }
