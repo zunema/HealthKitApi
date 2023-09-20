@@ -20,12 +20,16 @@ struct SleepContentView: View {
         fmt.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return fmt
     }()
-    
-//    healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
-    
+        
     var body: some View {
         NavigationView {
             VStack {
+                Button {
+                    healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
+                } label: {
+                    Text("睡眠データの取得を試みる")
+                }
+
                 Text("ここで夢の内容を表示する予定")
                 Text(fmt.string(from: fallingAsleepTime))
                 Text(fmt.string(from: wakeUpTime))
