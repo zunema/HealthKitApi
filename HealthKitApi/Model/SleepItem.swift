@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SleepItem: Identifiable {
-    var id: ObjectIdentifier
-    
-    var sleepId: String
+    var id: String
     var startDateTime: Date
     var endDateTime: Date
     var sleepStatus: String
