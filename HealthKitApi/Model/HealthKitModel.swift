@@ -89,6 +89,8 @@ class HealthKitModel: ObservableObject, Identifiable {
                         sleepStatus: item.value.description
                     )
                     self.dataSource.append(listItem)
+                    print("取得成功したかな...")
+                    print(listItem.sleepStatus)
                 }
             }
         }
