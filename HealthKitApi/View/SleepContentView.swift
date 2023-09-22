@@ -13,7 +13,7 @@ struct SleepContentView: View {
     @Binding var fallingAsleepTime: Date
     @Binding var wakeUpTime: Date
         
-    let fmt: DateFormatter = {
+    @State var fmt: DateFormatter = {
         var fmt = DateFormatter()
         fmt.timeZone = TimeZone(identifier: "Asia/Tokyo")
         fmt.locale = Locale(identifier: "ja_JP")
@@ -30,10 +30,32 @@ struct SleepContentView: View {
                     Text("睡眠データの取得を試みる")
                 }
 
-                Text("ここで夢の内容を表示する予定")
-                Text(fmt.string(from: fallingAsleepTime))
-                Text(fmt.string(from: wakeUpTime))
-                Text(healthKitModel.textConfirm)
+                List {
+                    if healthKitModel.dataSource.count == 0 {
+                        Text("データがありません。")
+                    } else {
+                        ForEach( healthKitModel.dataSource ){ item in
+                            if item.sleepStatus == "0" {
+                                Text("全就寝時間")
+                            } else if item.sleepStatus == "1" {
+                                Text("睡眠時間")
+                            }else if item.sleepStatus == "2" {
+                                Text("覚醒")
+                            }else if item.sleepStatus == "3" {
+                                Text("コア")
+                            }else if item.sleepStatus == "4" {
+                                Text("深い睡眠")
+                            }else if item.sleepStatus == "5" {
+                                Text("レム")
+                            }
+                            HStack{
+                                Text(fmt.string(from: item.startDateTime))
+                                Text(fmt.string(from: item.endDateTime))
+                                Text("ステータス: \(item.sleepStatus)")
+                            }
+                        }
+                    }
+                }
             }
         }
     }
