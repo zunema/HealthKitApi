@@ -14,7 +14,7 @@ class HealthKitModel: ObservableObject, Identifiable {
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
     var textConfirm: String = "確認OK。"
-    var dataSource:[SleepItem] = []
+    @Published var dataSource:[SleepItem] = []
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
@@ -23,32 +23,6 @@ class HealthKitModel: ObservableObject, Identifiable {
                         HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
                         HKObjectType.quantityType(forIdentifier: .heartRate)!,
                         HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!])
-    
-    // 睡眠用
-    // 1. データのタイプを指定
-    // let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
-    
-    // 2. 開始/終了時刻
-    // let startDate = Calendar.current.date(bySettingHour: 01:00, minute: 00, second: 0, of: Date())!
-    // let endDate = Calendar.current.date(bySettingHour: 07:00, minute: 00, second: 0, of: Date())!
-    
-    // 3. 上記の要素を一つのデータとしてまとめる
-    //    let sample = HKCategorySample(
-    //        type: sleepType,
-    //        value: HKCategoryValueSleepAnalysis.inBed.rawValue,
-    //        start: startDate,
-    //        end: endDate
-    //    )
-    
-    // 4. 上記の要素を一つのデータとしてまとめる
-    //    self.healthStore.save(sample) { success, error in
-    //        if success {
-    //            print("success")
-    //        } else {
-    //            print("failed")
-    //        }
-    //    }
-
     
     init?() {
         if !HKHealthStore.isHealthDataAvailable() {
@@ -89,12 +63,9 @@ class HealthKitModel: ObservableObject, Identifiable {
                         sleepStatus: item.value.description
                     )
                     self.dataSource.append(listItem)
-                    print("取得成功したかな...")
-                    print(listItem.sleepStatus)
                 }
             }
         }
         healthStore.execute(query)
-        print(type(of: self.dataSource))
     }
 }
