@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 使わなくても前のViewでいいかもしれない
 struct SleepDetailView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
