@@ -39,14 +39,16 @@ struct SleepContentView: View {
                                 Text("全就寝時間")
                             } else if item.sleepStatus == "1" {
                                 Text("睡眠時間")
-                            }else if item.sleepStatus == "2" {
+                            } else if item.sleepStatus == "2" {
                                 Text("覚醒")
-                            }else if item.sleepStatus == "3" {
+                            } else if item.sleepStatus == "3" {
                                 Text("コア")
-                            }else if item.sleepStatus == "4" {
+                            } else if item.sleepStatus == "4" {
                                 Text("深い睡眠")
-                            }else if item.sleepStatus == "5" {
+                            } else if item.sleepStatus == "5" {
                                 Text("レム")
+                            } else {
+                                Text("その他(sleepStatusが0~5以外)")
                             }
                             HStack{
                                 Text(fmt.string(from: item.startDateTime))
