@@ -13,12 +13,7 @@ import HealthKit
 
 struct UserConfirmView: View {
     
-    @State var testInputText = ""
-    @State var fetchText = ""
-    // ページ遷移しないとドキュメント更新になってしまう...
-    @State var sleepDoqument = UUID()
-    @State var sleepStr = ""
-    
+    @State var userName = ""
     let userID = Auth.auth().currentUser!.uid
     
     var body: some View {
@@ -26,14 +21,8 @@ struct UserConfirmView: View {
             VStack {
                 Text(userID)
             
-                TextField(text: $testInputText) {
-                    Text("登録する内容")
-                }
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                
-                TextField(text: $sleepStr) {
-                    Text("夢の保存用")
+                TextField(text: $userName) {
+                    Text("登録するユーザ名")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -42,18 +31,10 @@ struct UserConfirmView: View {
                     Firestore.firestore().collection("users").document(userID)
                         .setData(
                             ["userID": userID,
-                             "testText": testInputText]
+                             "userName": userName]
                         )
                 } label: {
                     Text("ユーザ情報の登録")
-                }
-                Button {
-                    Firestore.firestore().collection("sleepContents").document(sleepDoqument.uuidString)
-                        .setData(
-                            ["sleep": sleepStr]
-                        )
-                } label: {
-                    Text("夢の登録")
                 }
 
                 NavigationLink {
