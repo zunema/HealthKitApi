@@ -28,7 +28,7 @@ struct HealthKitContentView: View {
                     }
             if healthKitModel.permissionFlg {
                 NavigationLink(destination: SleepContentView(healthKitModel: healthKitModel, fallingAsleepTime: $fallingAsleepTime, wakeUpTime: $wakeUpTime)) {
-                    Text("夢の取得情報を確認するページへ!!")
+                    Text("夢の取得情報を確認するページへ")
                 }
             }
         }
