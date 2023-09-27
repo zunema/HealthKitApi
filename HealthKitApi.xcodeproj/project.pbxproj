@@ -24,6 +24,7 @@
 		E9E256F42ABDDCDE0009A4C9 /* SleepDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */; };
 		E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688702AB8225A004A88AB /* SleepContentView.swift */; };
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
+		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDetailView.swift; sourceTree = "<group>"; };
 		E9E688702AB8225A004A88AB /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
+		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				E96CA9962A96599E002CBD44 /* UserConfirmView.swift */,
 				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
 				E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */,
+				E9FABFC22AC457BC00F3B1DA /* TopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,
 				E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */,
 				E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */,
+				E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */,
 				E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

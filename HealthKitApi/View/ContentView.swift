@@ -21,7 +21,7 @@ struct ContentView: View {
                     Text("サインイン")
                 }
             } else {
-                UserConfirmView()
+                TopView()
                 // サインイン状態なのでサインアウトボタンを表示する
                 Button(action: {
                     authStateManager.signOut()
