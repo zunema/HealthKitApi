@@ -34,14 +34,12 @@ class HealthKitModel: ObservableObject, Identifiable {
         // 許可要求を発行
         self.healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
             if !success {
-                // エラーが発生した場合の処理を実装
                 self.permissionMessage = "許可要求失敗"
-                print("エラー発生")
             } else {
                 self.permissionMessage = "許可要求成功"
                 self.permissionFlg = true
-                print("成功")
             }
+            print(self.permissionMessage)
         }
     }
     
