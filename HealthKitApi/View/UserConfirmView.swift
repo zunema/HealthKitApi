@@ -37,12 +37,6 @@ struct UserConfirmView: View {
                     Text("ユーザ情報の登録")
                 }
 
-                NavigationLink {
-                    HealthKitContentView()
-                } label: {
-                    Text("healthKit参照へ")
-                }
-
             }
         }
     }

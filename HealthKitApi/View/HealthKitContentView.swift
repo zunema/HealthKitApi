@@ -17,13 +17,13 @@ struct HealthKitContentView: View {
     
     var body: some View {
         VStack {
-            Text(healthKitModel.permissionMessage)
+            
             DatePicker(selection: $fallingAsleepTime) {
-                        Image(systemName: "airplane")
+                        Image(systemName: "moon")
                         Text("入眠時刻を任意で指定")
                     }
             DatePicker(selection: $wakeUpTime) {
-                        Image(systemName: "airplane")
+                        Image(systemName: "sun.haze")
                         Text("起床時刻を任意で指定")
                     }
             if healthKitModel.permissionFlg {
