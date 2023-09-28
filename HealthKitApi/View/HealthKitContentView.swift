@@ -19,13 +19,17 @@ struct HealthKitContentView: View {
         VStack {
             
             DatePicker(selection: $fallingAsleepTime) {
-                        Image(systemName: "moon")
-                        Text("入眠時刻を任意で指定")
-                    }
+                HStack {
+                    Image(systemName: "moon")
+                    Text("入眠時刻を任意で指定")
+                }
+            }
             DatePicker(selection: $wakeUpTime) {
-                        Image(systemName: "sun.haze")
-                        Text("起床時刻を任意で指定")
-                    }
+                HStack {
+                    Image(systemName: "sun.haze")
+                    Text("起床時刻を任意で指定")
+                }
+            }
             if healthKitModel.permissionFlg {
                 NavigationLink(destination: SleepContentView(healthKitModel: healthKitModel, fallingAsleepTime: $fallingAsleepTime, wakeUpTime: $wakeUpTime)) {
                     Text("夢の取得情報を確認するページへ")
