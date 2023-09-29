@@ -32,7 +32,7 @@ struct SleepContentView: View {
 
                 List {
                     if healthKitModel.dataSource.count == 0 {
-                        Text("データがありません。")
+                        Text("データがありません")
                     } else {
                         ForEach( healthKitModel.dataSource ){ item in
                             if item.sleepStatus == "0" {
