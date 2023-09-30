@@ -14,6 +14,7 @@ struct HealthKitContentView: View {
     @ObservedObject var healthKitModel = HealthKitModel()!
     @State private var fallingAsleepTime = Date()
     @State private var wakeUpTime = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @State var isNavigate = false
     
     var body: some View {
         VStack {
@@ -32,9 +33,10 @@ struct HealthKitContentView: View {
             }
             if healthKitModel.permissionFlg {
                 NavigationLink(destination: SleepContentView(healthKitModel: healthKitModel, fallingAsleepTime: $fallingAsleepTime, wakeUpTime: $wakeUpTime)) {
-                    Text("夢の取得情報を確認するページへ")
+                    Text("夢の取得情報を確認")
                 }
             }
+
         }
     }
 }
