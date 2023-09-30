@@ -14,7 +14,6 @@ struct HealthKitContentView: View {
     @ObservedObject var healthKitModel = HealthKitModel()!
     @State private var fallingAsleepTime = Date()
     @State private var wakeUpTime = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    @State var isNavigate = false
     
     var body: some View {
         VStack {
