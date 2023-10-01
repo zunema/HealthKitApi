@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct SleepContentView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
     @Binding var fallingAsleepTime: Date
     @Binding var wakeUpTime: Date
+    
+    let sleepReference = Firestore.firestore().collection("sleep")
         
     @State var fmtDate: DateFormatter = {
         var fmt = DateFormatter()
@@ -32,10 +35,35 @@ struct SleepContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Text("睡眠データの数: \(healthKitModel.dataSource.count)")
+                if healthKitModel.dataSource.count == 0 {
+                    Text("睡眠データなし")
+                } else {
+                    Text("最初の睡眠データのid: \(healthKitModel.dataSource[0].id)")
+                }
+//                Button {
+//                    ForEach( healthKitModel.dataSource ) { item in
+//                        sleepReference.document(item.id)
+//                    }
+//                    sleepReference.document()
+//                    sleepReference.document(healthKitModel.dataSource[0].id)
+//                        .setData(
+//                            [
+//                                "status": healthKitModel.dataSource[0].sleepStatus,
+//                                "start": healthKitModel.dataSource[0].startDateTime,
+//                                "end": healthKitModel.dataSource[0].endDateTime
+//                            ]
+//                        )
+//                } label: {
+//                    Text("睡眠データの登録")
+//                }
                 List {
                     if healthKitModel.dataSource.count == 0 {
                         Text("データがありません")
                     } else {
+                        ForEach( healthKitModel.dataSource ) { item in
+                            
+                        }
                         ForEach( healthKitModel.dataSource ){ item in
                             HStack{
                                 if item.sleepStatus == "0" {
