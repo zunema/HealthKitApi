@@ -7,6 +7,7 @@
 
 import SwiftUI
 import HealthKit
+import FirebaseFirestore
 
 class HealthKitModel: ObservableObject, Identifiable {
     
@@ -15,6 +16,7 @@ class HealthKitModel: ObservableObject, Identifiable {
     var permissionFlg: Bool = false
     var textConfirm: String = "確認OK。"
     @Published var dataSource:[SleepItem] = []
+    let sleepReference = Firestore.firestore().collection("sleep")
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
@@ -43,6 +45,7 @@ class HealthKitModel: ObservableObject, Identifiable {
         }
     }
     
+    // 睡眠データの取得
     func getSleepAnalysis(fallingAsleepTime: Date, wakeUpTime: Date)  {
         let query = HKSampleQuery(sampleType: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!,
                                   predicate: HKQuery.predicateForSamples(withStart: fallingAsleepTime, end: wakeUpTime, options: []),
@@ -65,5 +68,24 @@ class HealthKitModel: ObservableObject, Identifiable {
             }
         }
         healthStore.execute(query)
+    }
+    
+    // 睡眠データの保存
+    func saveSleeps(dataSource:[SleepItem]) {
+        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
+            do {
+                
+            } catch (let error) {
+                print(error)
+            }
+            return nil
+        }, completion: { (_, error)  in
+            if let error = error {
+                print(error)
+                return
+            }
+        })
+
+        sleepReference.document()
     }
 }
