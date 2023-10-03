@@ -75,6 +75,7 @@ class HealthKitModel: ObservableObject, Identifiable {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
             do {
                 for item in dataSource {
+//                    let doc: DocumentReference = try self.sleepReference.document(item.id)
                     self.sleepReference.document(item.id)
                         .setData([
                             "status": item.sleepStatus,
