@@ -71,20 +71,15 @@ class HealthKitModel: ObservableObject, Identifiable {
     }
     
     // 睡眠データの保存
-    func saveSleeps(dataSource:[SleepItem]) {
+    func saveSleeps(dataSource:[SleepItem]) -> Void {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
-            do {
-                for item in dataSource {
-//                    let doc: DocumentReference = try self.sleepReference.document(item.id)
-                    self.sleepReference.document(item.id)
-                        .setData([
-                            "status": item.sleepStatus,
-                            "start": item.startDateTime,
-                            "end": item.endDateTime
-                        ])
-                }
-            } catch (let error) {
-                print(error)
+            for item in dataSource {
+                let sleepReference = self.sleepReference.document(item.id)
+                transaction.setData([
+                    "status": item.sleepStatus,
+                    "start": item.startDateTime,
+                    "end": item.endDateTime
+                ], forDocument: sleepReference)
             }
             return nil
         }, completion: { (_, error)  in
@@ -93,7 +88,6 @@ class HealthKitModel: ObservableObject, Identifiable {
                 return
             }
         })
-
-        sleepReference.document()
     }
+
 }

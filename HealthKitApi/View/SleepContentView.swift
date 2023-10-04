@@ -40,23 +40,12 @@ struct SleepContentView: View {
                     Text("睡眠データなし")
                 } else {
                     Text("最初の睡眠データのid: \(healthKitModel.dataSource[0].id)")
+                    Button {
+                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
+                    } label: {
+                        Text("睡眠データの登録")
+                    }
                 }
-//                Button {
-//                    ForEach( healthKitModel.dataSource ) { item in
-//                        sleepReference.document(item.id)
-//                    }
-//                    sleepReference.document()
-//                    sleepReference.document(healthKitModel.dataSource[0].id)
-//                        .setData(
-//                            [
-//                                "status": healthKitModel.dataSource[0].sleepStatus,
-//                                "start": healthKitModel.dataSource[0].startDateTime,
-//                                "end": healthKitModel.dataSource[0].endDateTime
-//                            ]
-//                        )
-//                } label: {
-//                    Text("睡眠データの登録")
-//                }
                 List {
                     if healthKitModel.dataSource.count == 0 {
                         Text("データがありません")
