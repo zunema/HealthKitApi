@@ -70,7 +70,7 @@ class HealthKitModel: ObservableObject, Identifiable {
         healthStore.execute(query)
     }
     
-    // 睡眠データの保存
+    // 睡眠データの保存(このメソッドが原因でエラーになってそう)
     func saveSleeps(dataSource:[SleepItem]) -> Void {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
             for item in dataSource {
