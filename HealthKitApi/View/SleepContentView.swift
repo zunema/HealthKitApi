@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct SleepContentView: View {
     
-    @ObservedObject var healthKitModel: HealthKitModel
+    @EnvironmentObject var healthKitModel: HealthKitModel
     @Binding var fallingAsleepTime: Date
     @Binding var wakeUpTime: Date
     
@@ -40,11 +40,11 @@ struct SleepContentView: View {
                     Text("睡眠データなし")
                 } else {
                     Text("最初の睡眠データのid: \(healthKitModel.dataSource[0].id)")
-                    Button {
-                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
-                    } label: {
-                        Text("睡眠データの登録")
-                    }
+//                    Button {
+//                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
+//                    } label: {
+//                        Text("睡眠データの登録")
+//                    }
                 }
                 List {
                     if healthKitModel.dataSource.count == 0 {

@@ -11,11 +11,11 @@ import FirebaseFirestore
 
 class HealthKitModel: ObservableObject, Identifiable {
     
+    @Published var dataSource: [SleepItem] = []
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
     var textConfirm: String = "確認OK。"
-    @Published var dataSource:[SleepItem] = []
     let sleepReference = Firestore.firestore().collection("sleep")
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
@@ -71,23 +71,23 @@ class HealthKitModel: ObservableObject, Identifiable {
     }
     
     // 睡眠データの保存(このメソッドが原因でエラーになってそう)
-    func saveSleeps(dataSource:[SleepItem]) -> Void {
-        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
-            for item in dataSource {
-                let sleepReference = self.sleepReference.document(item.id)
-                transaction.setData([
-                    "status": item.sleepStatus,
-                    "start": item.startDateTime,
-                    "end": item.endDateTime
-                ], forDocument: sleepReference)
-            }
-            return nil
-        }, completion: { (_, error)  in
-            if let error = error {
-                print(error)
-                return
-            }
-        })
-    }
+//    func saveSleeps(dataSource:[SleepItem]) -> Void {
+//        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
+//            for item in dataSource {
+//                let sleepReference = self.sleepReference.document(item.id)
+//                transaction.setData([
+//                    "status": item.sleepStatus,
+//                    "start": item.startDateTime,
+//                    "end": item.endDateTime
+//                ], forDocument: sleepReference)
+//            }
+//            return nil
+//        }, completion: { (_, error)  in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//        })
+//    }
 
 }

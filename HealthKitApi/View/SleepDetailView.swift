@@ -10,7 +10,7 @@ import SwiftUI
 // 使わなくても前のViewでいいかもしれない
 struct SleepDetailView: View {
     
-    @ObservedObject var healthKitModel: HealthKitModel
+    @EnvironmentObject var healthKitModel: HealthKitModel
     @Binding var fmt: DateFormatter
     
     var body: some View {
