@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKit
 import FirebaseFirestore
 
-class HealthKitModel: ObservableObject, Identifiable {
+class HealthKitModel: ObservableObject {
     
     @Published var dataSource: [SleepItem] = []
     var healthStore: HKHealthStore!

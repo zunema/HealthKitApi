@@ -40,6 +40,7 @@ struct SleepContentView: View {
                     Text("睡眠データなし")
                 } else {
                     Text("最初の睡眠データのid: \(healthKitModel.dataSource[0].id)")
+                    // この処理を使いたい
 //                    Button {
 //                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
 //                    } label: {
