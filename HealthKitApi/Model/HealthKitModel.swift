@@ -15,7 +15,6 @@ class HealthKitModel: ObservableObject {
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
-    var textConfirm: String = "確認OK。"
     let sleepReference = Firestore.firestore().collection("sleep")
     
     // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離と心拍数の共有と読み出しに関する許可要求設定
@@ -52,10 +51,10 @@ class HealthKitModel: ObservableObject {
                                   limit: HKObjectQueryNoLimit,
                                   sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
             
-            guard error == nil else { print("睡眠データを取得“失敗“"); return }
+            guard error == nil else { print("睡眠データの取得“失敗“"); return }
             // ここで取得した睡眠データを扱える形に整形する
             if let results = results as? [HKCategorySample] {
-                print("睡眠データを取得“成功“")
+                print("睡眠データの取得“成功“")
                 for item in results {
                     let listItem = SleepItem(
                         id: item.uuid.uuidString,
