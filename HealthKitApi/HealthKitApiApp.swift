@@ -30,7 +30,6 @@ struct HealthKitApiApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(HealthKitModel()!)
         }
     }
 }
