@@ -76,13 +76,13 @@ class HealthKitModel: ObservableObject {
     func saveSleeps(dataSource:[SleepItem]) -> Void {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
             for item in dataSource {
-                let sleepReference = self.sleepReference.document(item.id)
                 transaction.setData([
                     "status": item.sleepStatus,
                     "start": item.startDateTime,
                     "end": item.endDateTime
-                ], forDocument: sleepReference)
+                ], forDocument: self.sleepReference.document(item.id))
             }
+            print("睡眠データの保存“成功“")
             return nil
         }, completion: { (_, error)  in
             if let error = error {
