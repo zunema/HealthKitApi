@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct SleepContentView: View {
     
-    @EnvironmentObject var healthKitModel: HealthKitModel
+    @ObservedObject var healthKitModel: HealthKitModel
     @Binding var fallingAsleepTime: Date
     @Binding var wakeUpTime: Date
     
@@ -41,19 +41,16 @@ struct SleepContentView: View {
                 } else {
                     Text("最初の睡眠データのid: \(healthKitModel.dataSource[0].id)")
                     // この処理を使いたい
-//                    Button {
-//                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
-//                    } label: {
-//                        Text("睡眠データの登録")
-//                    }
+                    Button {
+                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
+                    } label: {
+                        Text("睡眠データの登録")
+                    }
                 }
                 List {
                     if healthKitModel.dataSource.count == 0 {
                         Text("データがありません")
                     } else {
-                        ForEach( healthKitModel.dataSource ) { item in
-                            
-                        }
                         ForEach( healthKitModel.dataSource ){ item in
                             HStack{
                                 if item.sleepStatus == "0" {
@@ -77,10 +74,14 @@ struct SleepContentView: View {
                         }
                     }
                 }
-            }.onAppear {
+            }
+            .onAppear {
                 healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
-            }.onDisappear {
-                healthKitModel.dataSource.removeAll()
+            }
+            .onDisappear {
+                Task.detached { @MainActor in
+                    healthKitModel.dataSource.removeAll()
+                }
             }
         }
     }

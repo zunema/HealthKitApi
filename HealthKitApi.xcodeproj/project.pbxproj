@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		433067FD08318FD43A6CB15F /* Pods_HealthKitApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */; };
 		E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA9962A96599E002CBD44 /* UserConfirmView.swift */; };
-		E991E7B62A97A658008FAA14 /* SleepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E991E7B52A97A658008FAA14 /* SleepController.swift */; };
 		E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */; };
 		E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80D2A95045700D5D502 /* ContentView.swift */; };
 		E9B3E8102A95045C00D5D502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B3E80F2A95045C00D5D502 /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 		E9D79BC92AA32DDF00C69FE1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */; };
 		E9D79BCB2AA32DEC00C69FE1 /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BCA2AA32DEB00C69FE1 /* HealthKitUI.framework */; };
 		E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */; };
-		E9E256F42ABDDCDE0009A4C9 /* SleepDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */; };
 		E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688702AB8225A004A88AB /* SleepContentView.swift */; };
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
 		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
@@ -33,7 +31,6 @@
 		C5D2C371A4DABD0C2EFC84A3 /* Pods-HealthKitApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.release.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.release.xcconfig"; sourceTree = "<group>"; };
 		E96CA9952A965528002CBD44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E96CA9962A96599E002CBD44 /* UserConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmView.swift; sourceTree = "<group>"; };
-		E991E7B52A97A658008FAA14 /* SleepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepController.swift; sourceTree = "<group>"; };
 		E9B3E8082A95045700D5D502 /* HealthKitApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthKitApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitApiApp.swift; sourceTree = "<group>"; };
 		E9B3E80D2A95045700D5D502 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,7 +44,6 @@
 		E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E9D79BCA2AA32DEB00C69FE1 /* HealthKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKitUI.framework; path = System/Library/Frameworks/HealthKitUI.framework; sourceTree = SDKROOT; };
 		E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModel.swift; sourceTree = "<group>"; };
-		E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDetailView.swift; sourceTree = "<group>"; };
 		E9E688702AB8225A004A88AB /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
 		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -137,7 +133,6 @@
 				E9D79BC52AA257CD00C69FE1 /* HealthKitContentView.swift */,
 				E96CA9962A96599E002CBD44 /* UserConfirmView.swift */,
 				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
-				E9E256F32ABDDCDE0009A4C9 /* SleepDetailView.swift */,
 				E9FABFC22AC457BC00F3B1DA /* TopView.swift */,
 			);
 			path = View;
@@ -146,7 +141,6 @@
 		E9E688732AB82470004A88AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E991E7B52A97A658008FAA14 /* SleepController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,11 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E991E7B62A97A658008FAA14 /* SleepController.swift in Sources */,
 				E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */,
 				E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
-				E9E256F42ABDDCDE0009A4C9 /* SleepDetailView.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,

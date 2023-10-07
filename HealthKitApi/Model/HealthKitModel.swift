@@ -36,9 +36,9 @@ class HealthKitModel: ObservableObject {
         // 許可要求を発行
         self.healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
             if !success {
-                self.permissionMessage = "許可要求失敗"
+                self.permissionMessage = "許可要求“失敗“"
             } else {
-                self.permissionMessage = "許可要求成功"
+                self.permissionMessage = "許可要求“成功“"
                 self.permissionFlg = true
             }
             print(self.permissionMessage)
@@ -52,10 +52,10 @@ class HealthKitModel: ObservableObject {
                                   limit: HKObjectQueryNoLimit,
                                   sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
             
-            guard error == nil else { print("睡眠データを取得失敗"); return }
+            guard error == nil else { print("睡眠データを取得“失敗“"); return }
             // ここで取得した睡眠データを扱える形に整形する
             if let results = results as? [HKCategorySample] {
-                print("取得成功!!")
+                print("睡眠データを取得“成功“")
                 for item in results {
                     let listItem = SleepItem(
                         id: item.uuid.uuidString,
@@ -63,31 +63,33 @@ class HealthKitModel: ObservableObject {
                         endDateTime: item.endDate,
                         sleepStatus: item.value.description
                     )
-                    self.dataSource.append(listItem)
+                    DispatchQueue.main.async {
+                        self.dataSource.append(listItem)
+                    }
                 }
             }
         }
         healthStore.execute(query)
     }
     
-    // 睡眠データの保存(このメソッドが原因でエラーになってそう)
-//    func saveSleeps(dataSource:[SleepItem]) -> Void {
-//        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
-//            for item in dataSource {
-//                let sleepReference = self.sleepReference.document(item.id)
-//                transaction.setData([
-//                    "status": item.sleepStatus,
-//                    "start": item.startDateTime,
-//                    "end": item.endDateTime
-//                ], forDocument: sleepReference)
-//            }
-//            return nil
-//        }, completion: { (_, error)  in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//        })
-//    }
+    // 睡眠データの保存
+    func saveSleeps(dataSource:[SleepItem]) -> Void {
+        Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
+            for item in dataSource {
+                let sleepReference = self.sleepReference.document(item.id)
+                transaction.setData([
+                    "status": item.sleepStatus,
+                    "start": item.startDateTime,
+                    "end": item.endDateTime
+                ], forDocument: sleepReference)
+            }
+            return nil
+        }, completion: { (_, error)  in
+            if let error = error {
+                print(error)
+                return
+            }
+        })
+    }
 
 }
