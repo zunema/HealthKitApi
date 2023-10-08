@@ -20,6 +20,10 @@
 		E9D79BC92AA32DDF00C69FE1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */; };
 		E9D79BCB2AA32DEC00C69FE1 /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BCA2AA32DEB00C69FE1 /* HealthKitUI.framework */; };
 		E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */; };
+		E9DB2A282AD25EC9003D33B2 /* SleepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB2A272AD25EC9003D33B2 /* SleepModel.swift */; };
+		E9DB2A2D2AD26041003D33B2 /* HeartRateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */; };
+		E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */; };
+		E9DB2A322AD29EA0003D33B2 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */; };
 		E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688702AB8225A004A88AB /* SleepContentView.swift */; };
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
 		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
@@ -44,6 +48,10 @@
 		E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E9D79BCA2AA32DEB00C69FE1 /* HealthKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKitUI.framework; path = System/Library/Frameworks/HealthKitUI.framework; sourceTree = SDKROOT; };
 		E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitModel.swift; sourceTree = "<group>"; };
+		E9DB2A272AD25EC9003D33B2 /* SleepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepModel.swift; sourceTree = "<group>"; };
+		E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateItem.swift; sourceTree = "<group>"; };
+		E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateContentView.swift; sourceTree = "<group>"; };
+		E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
 		E9E688702AB8225A004A88AB /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
 		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -126,12 +134,57 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E9E688722AB82463004A88AB /* View */ = {
+		E9DB2A292AD25EE8003D33B2 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A2B2AD25FFE003D33B2 /* Heart */,
+				E9DB2A2A2AD25F12003D33B2 /* Sleep */,
+				E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		E9DB2A2A2AD25F12003D33B2 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A272AD25EC9003D33B2 /* SleepModel.swift */,
+				E9E688752AB82CAD004A88AB /* SleepItem.swift */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		E9DB2A2B2AD25FFE003D33B2 /* Heart */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */,
+				E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */,
+			);
+			path = Heart;
+			sourceTree = "<group>";
+		};
+		E9DB2A2E2AD29E07003D33B2 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
 				E9E688702AB8225A004A88AB /* SleepContentView.swift */,
 				E9D79BC52AA257CD00C69FE1 /* HealthKitContentView.swift */,
+				E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		E9DB2A342AD2A447003D33B2 /* User */ = {
+			isa = PBXGroup;
+			children = (
 				E96CA9962A96599E002CBD44 /* UserConfirmView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E9E688722AB82463004A88AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A342AD2A447003D33B2 /* User */,
+				E9DB2A2E2AD29E07003D33B2 /* HealthKit */,
 				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
 				E9FABFC22AC457BC00F3B1DA /* TopView.swift */,
 			);
@@ -148,8 +201,7 @@
 		E9E688742AB82497004A88AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9D79BCC2AA331BD00C69FE1 /* HealthKitModel.swift */,
-				E9E688752AB82CAD004A88AB /* SleepItem.swift */,
+				E9DB2A292AD25EE8003D33B2 /* HealthKit */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,12 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DB2A322AD29EA0003D33B2 /* HeartRateModel.swift in Sources */,
 				E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */,
 				E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
+				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
+				E9DB2A2D2AD26041003D33B2 /* HeartRateItem.swift in Sources */,
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,
+				E9DB2A282AD25EC9003D33B2 /* SleepModel.swift in Sources */,
 				E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */,
 				E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */,
 				E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */,

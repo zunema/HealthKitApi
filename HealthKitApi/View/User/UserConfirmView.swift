@@ -14,24 +14,33 @@ import HealthKit
 struct UserConfirmView: View {
     
     @State var userName = ""
-    let userID = Auth.auth().currentUser!.uid
+    @State var userId = ""
+    let userUuid = Auth.auth().currentUser!.uid
     
     var body: some View {
         NavigationView {
             VStack {
-                Text(userID)
+                Text(userUuid)
             
                 TextField(text: $userName) {
                     Text("登録するユーザ名")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+                TextField(text: $userId) {
+                    Text("登録するユーザID")
+                }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
                 
                 Button {
-                    Firestore.firestore().collection("users").document(userID)
+                    Firestore.firestore().collection("users").document(userUuid)
                         .setData(
-                            ["userID": userID,
-                             "userName": userName]
+                            [
+                                "userUuid": userUuid,
+                                "userID": userId,
+                                "userName": userName
+                            ]
                         )
                 } label: {
                     Text("ユーザ情報の登録")

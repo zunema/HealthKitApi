@@ -11,6 +11,7 @@ import FirebaseFirestore
 struct SleepContentView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
+    @ObservedObject var sleepModel: SleepModel
     @Binding var fallingAsleepTime: Date
     @Binding var wakeUpTime: Date
     
@@ -35,24 +36,24 @@ struct SleepContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("睡眠データの数: \(healthKitModel.dataSource.count)")
-                if healthKitModel.dataSource.count == 0 {
+                Text("取得した睡眠データの数: \(healthKitModel.sleepItem.count)")
+                if healthKitModel.sleepItem.count == 0 {
                     Text("睡眠データなし")
                 } else {
                     Button {
-                        healthKitModel.saveSleeps(dataSource: healthKitModel.dataSource)
+                        sleepModel.saveSleeps(dataSource: healthKitModel.sleepItem)
                     } label: {
                         Text("睡眠データの登録")
                     }
                 }
                 List {
-                    if healthKitModel.dataSource.count == 0 {
+                    if healthKitModel.sleepItem.count == 0 {
                         Text("データがありません")
                     } else {
-                        ForEach( healthKitModel.dataSource ){ item in
+                        ForEach( healthKitModel.sleepItem ){ item in
                             HStack{
                                 if item.sleepStatus == "0" {
-                                    Text("全就寝時間")
+                                    Text("就寝時間")
                                 } else if item.sleepStatus == "1" {
                                     Text("睡眠時間")
                                 } else if item.sleepStatus == "2" {
@@ -78,7 +79,7 @@ struct SleepContentView: View {
             }
             .onDisappear {
                 Task.detached { @MainActor in
-                    healthKitModel.dataSource.removeAll()
+                    healthKitModel.sleepItem.removeAll()
                 }
             }
         }
