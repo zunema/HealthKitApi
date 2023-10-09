@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuthUI
 import FirebaseFirestore
 
 class HeartRateModel: ObservableObject {
@@ -20,6 +21,7 @@ class HeartRateModel: ObservableObject {
                 transaction.setData([
                     "datetime": item.datetime,
                     "count": item.count,
+                    "userId": Auth.auth().currentUser!.uid
                 ], forDocument: self.heartRateReference.document(item.id))
             }
             print("心拍数データの保存“成功“")

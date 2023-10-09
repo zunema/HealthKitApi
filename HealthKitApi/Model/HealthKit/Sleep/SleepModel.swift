@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuthUI
 import FirebaseFirestore
 
 class SleepModel: ObservableObject {
@@ -20,7 +21,8 @@ class SleepModel: ObservableObject {
                 transaction.setData([
                     "status": item.sleepStatus,
                     "start": item.startDateTime,
-                    "end": item.endDateTime
+                    "end": item.endDateTime,
+                    "userId": Auth.auth().currentUser!.uid
                 ], forDocument: self.sleepReference.document(item.id))
             }
             print("睡眠データの保存“成功“")
