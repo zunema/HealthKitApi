@@ -12,7 +12,7 @@ import FirebaseFirestore
 class UserModel: ObservableObject {
     @Published var user: UserItem = UserItem(id: "", userName: "", uuid: Auth.auth().currentUser!.uid)
     
-    // ユーザ登録(ゆくゆく件数取得の際に競合してuserIDが被る可能性がある)
+    // ユーザ登録
     func save(userModel: UserModel) -> Void {
         Firestore.firestore().collection("users").document(userModel.user.uuid)
             .setData([
