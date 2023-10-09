@@ -16,6 +16,8 @@
 		E9B3E81A2A95048100D5D502 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9B3E8192A95048100D5D502 /* GoogleService-Info.plist */; };
 		E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E81B2A95086600D5D502 /* FirebaseAuthStateManager.swift */; };
 		E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E81D2A95089200D5D502 /* FirebaseUIView.swift */; };
+		E9C3853D2AD3C7E400796313 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3853C2AD3C7E400796313 /* UserModel.swift */; };
+		E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C3853E2AD3C84400796313 /* UserItem.swift */; };
 		E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D79BC52AA257CD00C69FE1 /* HealthKitContentView.swift */; };
 		E9D79BC92AA32DDF00C69FE1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */; };
 		E9D79BCB2AA32DEC00C69FE1 /* HealthKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D79BCA2AA32DEB00C69FE1 /* HealthKitUI.framework */; };
@@ -43,6 +45,8 @@
 		E9B3E8192A95048100D5D502 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9B3E81B2A95086600D5D502 /* FirebaseAuthStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthStateManager.swift; sourceTree = "<group>"; };
 		E9B3E81D2A95089200D5D502 /* FirebaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUIView.swift; sourceTree = "<group>"; };
+		E9C3853C2AD3C7E400796313 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E9C3853E2AD3C84400796313 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		E9D79BC52AA257CD00C69FE1 /* HealthKitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitContentView.swift; sourceTree = "<group>"; };
 		E9D79BC72AA325AD00C69FE1 /* HealthKitApi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthKitApi.entitlements; sourceTree = "<group>"; };
 		E9D79BC82AA32DDF00C69FE1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -134,6 +138,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E9C3853B2AD3C7BA00796313 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E9C3853C2AD3C7E400796313 /* UserModel.swift */,
+				E9C3853E2AD3C84400796313 /* UserItem.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		E9DB2A292AD25EE8003D33B2 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		E9E688742AB82497004A88AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9C3853B2AD3C7BA00796313 /* User */,
 				E9DB2A292AD25EE8003D33B2 /* HealthKit */,
 			);
 			path = Model;
@@ -328,12 +342,14 @@
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
+				E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */,
 				E9DB2A2D2AD26041003D33B2 /* HeartRateItem.swift in Sources */,
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,
 				E9DB2A282AD25EC9003D33B2 /* SleepModel.swift in Sources */,
 				E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */,
 				E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */,
 				E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */,
+				E9C3853D2AD3C7E400796313 /* UserModel.swift in Sources */,
 				E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
