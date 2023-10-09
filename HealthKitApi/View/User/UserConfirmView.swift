@@ -6,10 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseCore
-import FirebaseAuthUI
 import FirebaseFirestore
-import HealthKit
 
 struct UserConfirmView: View {
     
@@ -50,7 +47,7 @@ struct UserConfirmView: View {
         }
     }
     
-    // ※ユーザIDの更新ができてしまうため、改修が必須
+    // ※ユーザidの更新ができてしまうため、改修が必須(せめて、すでにユーザ登録がある場合は、idの更新はしないようにするとかの処理、firestoreにidの登録時に指定カラムのインクリメント処理とかがあればいいのだが)
     func userIdCreate() async {
         let aggregateSnapshot = try! await Firestore.firestore().collection("users").count.getAggregation(source: .server)
         let userId = aggregateSnapshot.count.intValue + 1
