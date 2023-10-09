@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import HealthKit
 import FirebaseFirestore
 
 class HeartRateModel: ObservableObject {
