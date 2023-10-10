@@ -18,8 +18,7 @@ class HealthKitModel: ObservableObject {
     var permissionFlg: Bool = false
     let sleepReference = Firestore.firestore().collection("sleep")
     
-    // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離、心拍数、睡眠
-    // 共有と読み出しに関する許可要求設定
+    // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離、心拍数、睡眠の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
                         HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
                         HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
