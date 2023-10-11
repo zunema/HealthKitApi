@@ -23,13 +23,13 @@ struct HealthKitContentView: View {
             DatePicker(selection: $fallingAsleepTime) {
                 HStack {
                     Image(systemName: "clock.badge")
-                    Text("開始時刻を任意で指定")
+                    Text("開始時刻を指定")
                 }
             }
             DatePicker(selection: $wakeUpTime) {
                 HStack {
                     Image(systemName: "clock.badge.fill")
-                    Text("終了時刻を任意で指定")
+                    Text("終了時刻を指定")
                 }
             }
             if healthKitModel.permissionFlg {
