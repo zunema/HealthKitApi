@@ -28,6 +28,7 @@
 		E9DB2A322AD29EA0003D33B2 /* HeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */; };
 		E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688702AB8225A004A88AB /* SleepContentView.swift */; };
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
+		E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7DDAA2AD83958008CF62A /* DateFormat.swift */; };
 		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateModel.swift; sourceTree = "<group>"; };
 		E9E688702AB8225A004A88AB /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
+		E9E7DDAA2AD83958008CF62A /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		E9B3E80A2A95045700D5D502 /* HealthKitApi */ = {
 			isa = PBXGroup;
 			children = (
+				E9E7DDA92AD834FE008CF62A /* Util */,
 				E9E688742AB82497004A88AB /* Model */,
 				E9E688732AB82470004A88AB /* Controller */,
 				E9E688722AB82463004A88AB /* View */,
@@ -218,6 +221,14 @@
 				E9DB2A292AD25EE8003D33B2 /* HealthKit */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E9E7DDA92AD834FE008CF62A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E9E7DDAA2AD83958008CF62A /* DateFormat.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +351,7 @@
 				E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
+				E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
 				E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */,
