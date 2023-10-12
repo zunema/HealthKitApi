@@ -16,23 +16,10 @@ struct SleepContentView: View {
     @Binding var wakeUpTime: Date
     
     let sleepReference = Firestore.firestore().collection("sleep")
-        
-    @State var fmtDate: DateFormatter = {
-        var fmt = DateFormatter()
-        fmt.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        fmt.locale = Locale(identifier: "ja_JP")
-        fmt.dateFormat = "yyyy/MM/dd"
-        return fmt
-    }()
     
-    @State var fmtTime: DateFormatter = {
-        var fmt = DateFormatter()
-        fmt.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        fmt.locale = Locale(identifier: "ja_JP")
-        fmt.dateFormat = "HH:mm"
-        return fmt
-    }()
-        
+    let fmtDate: DateFormatter = DateFormat().getDate()
+    let fmtHoursAndMinutes: DateFormatter = DateFormat().getHoursAndMinutes()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -68,7 +55,7 @@ struct SleepContentView: View {
                                     Text("その他(sleepStatusが0~5以外)")
                                 }
                                 Text(fmtDate.string(from: item.startDateTime))
-                                Text(fmtTime.string(from: item.startDateTime) + " ~ " + fmtTime.string(from: item.endDateTime))
+                                Text(fmtHoursAndMinutes.string(from: item.startDateTime) + " ~ " + fmtHoursAndMinutes.string(from: item.endDateTime))
                             }
                         }
                     }
