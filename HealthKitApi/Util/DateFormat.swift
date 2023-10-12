@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DateFormat {
     
+    /** 年月日のフォーマット */
     func getDate() -> DateFormatter {
         let fmt = DateFormatter()
         fmt.timeZone = TimeZone(identifier: "Asia/Tokyo")
@@ -17,6 +18,7 @@ struct DateFormat {
         return fmt
     }
     
+    /** 時分のフォーマット */
     func getHoursAndMinutes() -> DateFormatter {
         let fmt = DateFormatter()
         fmt.timeZone = TimeZone(identifier: "Asia/Tokyo")
