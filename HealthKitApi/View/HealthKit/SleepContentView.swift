@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
+// 睡眠データの確認ページ
 struct SleepContentView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
