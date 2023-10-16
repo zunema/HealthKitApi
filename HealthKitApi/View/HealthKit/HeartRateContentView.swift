@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
+// 心拍数データの確認ページ
 struct HeartRateContentView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
