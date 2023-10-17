@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
+// ユーザ情報のページ
 struct UserConfirmView: View {
     
     @ObservedObject var userModel: UserModel = UserModel()
