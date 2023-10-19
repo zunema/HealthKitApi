@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuthUI
 import FirebaseFirestore
 
+// ユーザモデル
 class UserModel: ObservableObject {
     @Published var user: UserItem = UserItem(id: "", userName: "", uuid: Auth.auth().currentUser!.uid)
     
