@@ -33,6 +33,7 @@ struct TopView: View {
                 }
 
             }
+            .onAppear()
         }
     }
     

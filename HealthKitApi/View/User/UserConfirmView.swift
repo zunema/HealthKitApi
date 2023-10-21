@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestore
+import FirebaseAuthUI
 
 // ユーザ情報のページ
 struct UserConfirmView: View {
@@ -14,6 +15,7 @@ struct UserConfirmView: View {
     @ObservedObject var userModel: UserModel = UserModel()
     @State var countText: String = "none"
     @State var userCreate: Bool = false
+    let userID = Auth.auth().currentUser!.uid
     
     var body: some View {
         NavigationView {
@@ -43,6 +45,13 @@ struct UserConfirmView: View {
                 } else {
                     Text("ユーザIDを作成してください")
                 }
+                
+                Button {
+                    let userName = userModel.existUserCheck(userID: userID)
+                } label: {
+                    Text("ユーザ情報をログで確認")
+                }
+
                 
             }
         }
