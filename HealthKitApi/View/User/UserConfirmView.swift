@@ -12,7 +12,7 @@ import FirebaseAuthUI
 // ユーザ情報のページ
 struct UserConfirmView: View {
     
-    @ObservedObject var userModel: UserModel = UserModel()
+    @ObservedObject var userModel: UserModel
     @State var countText: String = "none"
     @State var userCreate: Bool = false
     let userID = Auth.auth().currentUser!.uid
@@ -20,6 +20,8 @@ struct UserConfirmView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
+                Text(userModel.user.userName)
             
                 TextField(text: $userModel.user.userName) {
                     Text("登録する名前")
@@ -45,13 +47,6 @@ struct UserConfirmView: View {
                 } else {
                     Text("ユーザIDを作成してください")
                 }
-                
-                Button {
-                    let userName = userModel.existUserCheck(userID: userID)
-                } label: {
-                    Text("ユーザ情報をログで確認")
-                }
-
                 
             }
         }

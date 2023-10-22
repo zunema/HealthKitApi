@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		433067FD08318FD43A6CB15F /* Pods_HealthKitApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */; };
+		E95844AC2AE4D8230034EF83 /* UserCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95844AB2AE4D8230034EF83 /* UserCreateView.swift */; };
 		E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA9962A96599E002CBD44 /* UserConfirmView.swift */; };
 		E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */; };
 		E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80D2A95045700D5D502 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 		6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthKitApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7179B2B34C48B1E4CA87841F /* Pods-HealthKitApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.debug.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.debug.xcconfig"; sourceTree = "<group>"; };
 		C5D2C371A4DABD0C2EFC84A3 /* Pods-HealthKitApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.release.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.release.xcconfig"; sourceTree = "<group>"; };
+		E95844AB2AE4D8230034EF83 /* UserCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateView.swift; sourceTree = "<group>"; };
 		E96CA9952A965528002CBD44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E96CA9962A96599E002CBD44 /* UserConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmView.swift; sourceTree = "<group>"; };
 		E9B3E8082A95045700D5D502 /* HealthKitApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthKitApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				E96CA9962A96599E002CBD44 /* UserConfirmView.swift */,
+				E95844AB2AE4D8230034EF83 /* UserCreateView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				E9DB2A322AD29EA0003D33B2 /* HeartRateModel.swift in Sources */,
 				E9B3E80E2A95045700D5D502 /* ContentView.swift in Sources */,
 				E9B3E81E2A95089200D5D502 /* FirebaseUIView.swift in Sources */,
+				E95844AC2AE4D8230034EF83 /* UserCreateView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */,
@@ -510,7 +514,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HealthKitApi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetHealthKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -545,7 +549,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HealthKitApi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetHealthKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

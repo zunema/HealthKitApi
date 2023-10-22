@@ -14,26 +14,39 @@ import HealthKit
 struct TopView: View {
     
     @State var userName = ""
-    let userID = Auth.auth().currentUser!.uid
+    @State var userID = Auth.auth().currentUser!.uid
+    @ObservedObject var userModel: UserModel = UserModel()
+    var existUser:Bool = false
+    
+    init(){
+        existUser = userModel.existUser(userID: userID)
+    }
     
     var body: some View {
         NavigationView {
             VStack {
                 
-                NavigationLink {
-                    HealthKitContentView()
-                } label: {
-                    Text("healthKitへ")
-                }
-                
-                NavigationLink {
-                    UserConfirmView()
-                } label: {
-                    Text("ユーザ情報へ")
+                if existUser {
+                    NavigationLink {
+                        HealthKitContentView()
+                    } label: {
+                        Text("healthKitへ")
+                    }
+                    
+                    NavigationLink {
+                        UserConfirmView(userModel: userModel)
+                    } label: {
+                        Text("ユーザ情報へ")
+                    }
+                } else {
+//                    NavigationLink {
+//                        UserCreateView(uuidStr: $userID)
+//                    } label: {
+//                        Text("新規登録をしてください")
+//                    }
                 }
 
             }
-            .onAppear()
         }
     }
     

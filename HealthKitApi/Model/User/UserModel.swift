@@ -15,7 +15,7 @@ class UserModel: ObservableObject {
     @Published var user: UserItem = UserItem(id: "", userName: "", uuid: Auth.auth().currentUser!.uid)
     
     // ユーザ情報取得
-    func existUserCheck(userID: String) -> Bool {
+    func existUser(userID: String) -> Bool {
         var existUser:Bool = false
         let docRef = db.collection("users").document(userID)
         docRef.getDocument { (document, error) in
@@ -27,6 +27,16 @@ class UserModel: ObservableObject {
             }
         }
         return existUser
+    }
+    
+    // 新しくユーザ登録を作る
+    func create(uuidStr: String, name: String) -> Void {
+        db.collection("users").document(uuidStr)
+            .setData([
+                "uuid": uuidStr,
+                "name": name
+            ])
+        print("※新しい　ユーザ登録 “完了“")
     }
     
     // ユーザ登録
