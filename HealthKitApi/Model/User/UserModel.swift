@@ -36,7 +36,7 @@ class UserModel: ObservableObject {
                 "uuid": uuidStr,
                 "name": name
             ])
-        print("※新しい　ユーザ登録 “完了“")
+        print("ユーザ登録 “完了“")
     }
     
     // ユーザ登録
@@ -47,7 +47,7 @@ class UserModel: ObservableObject {
                 "uuid": userModel.user.uuid,
                 "name": userModel.user.userName
             ])
-        print("ユーザ登録 “完了“")
+        print("ユーザ登録 “完了“(こっちは無くす予定)")
     }
     
 }
