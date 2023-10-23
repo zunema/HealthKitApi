@@ -22,7 +22,7 @@ struct UserCreateView: View {
             Text(uuidStr)
             
             TextField(text: $name) {
-                Text("登録する名前")
+                Text("名前を入力してください")
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
@@ -30,7 +30,7 @@ struct UserCreateView: View {
             Button {
                 userModel.create(uuidStr: uuidStr, name: name)
             } label: {
-                Text("登録する名前")
+                Text("登録する")
             }
 
         }
