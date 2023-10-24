@@ -35,7 +35,7 @@ struct UserConfirmView: View {
                         userCreate = true
                     }
                 } label: {
-                    Text("ユーザIDを生成する")
+                    Text("ユーザIDを生成する(そもそもユーザIDを無くすか検討)")
                 }
                 
                 if userCreate {
