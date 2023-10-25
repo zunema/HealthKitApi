@@ -9,6 +9,7 @@ import SwiftUI
 import HealthKit
 import FirebaseFirestore
 
+/** ヘルスキットモデル */
 class HealthKitModel: ObservableObject {
     
     @Published var sleepItem: [SleepItem] = []
