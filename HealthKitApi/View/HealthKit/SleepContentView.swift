@@ -62,6 +62,7 @@ struct SleepContentView: View {
                     }
                 }
             }
+            // ページ読み込み時にデータを新しくする
             .onAppear {
                 healthKitModel.getSleepAnalysis(fallingAsleepTime: fallingAsleepTime, wakeUpTime: wakeUpTime)
             }
