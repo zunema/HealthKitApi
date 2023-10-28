@@ -14,49 +14,31 @@ struct UserConfirmView: View {
     
     @ObservedObject var userModel: UserModel
     @State var countText: String = "none"
-    @State var userCreate: Bool = false
     let userID = Auth.auth().currentUser!.uid
     
     var body: some View {
         NavigationView {
             VStack {
                 
+                Text("現在の名前")
                 Text(userModel.user.userName)
             
                 TextField(text: $userModel.user.userName) {
-                    Text("登録する名前")
+                    Text("新しい名前")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 
                 Button {
-                    Task {
-                        await userIdCreate()
-                        userCreate = true
-                    }
+                    userModel.save(userModel: userModel)
                 } label: {
-                    Text("ユーザIDを生成する(そもそもユーザIDを無くすか検討)")
+                    Text("ユーザ情報の登録")
                 }
-                
-                if userCreate {
-                    Button {
-                        userModel.save(userModel: userModel)
-                    } label: {
-                        Text("ユーザ情報の登録")
-                    }
-                } else {
-                    Text("ユーザIDを作成してください")
-                }
+                .disabled(userModel.user.userName.isEmpty)
+                .foregroundColor(userModel.user.userName.isEmpty ? Color.black : Color.white)
+                .background(userModel.user.userName.isEmpty ? Color.gray : Color.blue)
                 
             }
         }
-    }
-    
-    // ※ユーザidの更新ができてしまうため、改修が必須(せめて、すでにユーザ登録がある場合は、idの更新はしないようにするとかの処理、firestoreにidの登録時に指定カラムのインクリメント処理とかがあればいいのだが)
-    func userIdCreate() async {
-        let aggregateSnapshot = try! await Firestore.firestore().collection("users").count.getAggregation(source: .server)
-        let userId = aggregateSnapshot.count.intValue + 1
-        userModel.user.id = String(userId)
-        print("登録されるユーザID: \(userModel.user.id)")
     }
 }

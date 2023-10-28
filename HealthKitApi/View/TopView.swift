@@ -13,7 +13,7 @@ import HealthKit
 
 struct TopView: View {
     
-    @State var userName = ""
+    @State var name: String = ""
     @State var userID = Auth.auth().currentUser!.uid
     @ObservedObject var userModel: UserModel = UserModel()
     var existUser:Bool = false
@@ -39,11 +39,11 @@ struct TopView: View {
                         Text("ユーザ情報へ")
                     }
                 } else {
-//                    NavigationLink {
-//                        UserCreateView(uuidStr: $userID)
-//                    } label: {
-//                        Text("新規登録をしてください")
-//                    }
+                    NavigationLink {
+                        UserCreateView(uuidStr: $userID, name: name)
+                    } label: {
+                        Text("新規登録をしてください")
+                    }
                 }
 
             }

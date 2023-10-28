@@ -18,7 +18,7 @@ struct UserCreateView: View {
     
     var body: some View {
         VStack {
-            Text("あなたのIDは下記です")
+            Text("ID確認")
             Text(uuidStr)
             
             TextField(text: $name) {
@@ -32,7 +32,9 @@ struct UserCreateView: View {
             } label: {
                 Text("登録する")
             }
-
+            .disabled(name.isEmpty)
+            .foregroundColor(name.isEmpty ? Color.black : Color.white)
+            .background(name.isEmpty ? Color.gray : Color.blue)
         }
     }
 }
