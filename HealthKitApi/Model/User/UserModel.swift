@@ -12,7 +12,12 @@ import FirebaseFirestore
 // ユーザモデル
 class UserModel: ObservableObject {
     let db = Firestore.firestore()
-    @Published var user: UserItem = UserItem(id: "", userName: "", uuid: Auth.auth().currentUser!.uid)
+    @Published var user: UserItem = UserItem(id: "", userName: "")
+    var isExistUser: Bool = false
+    
+    init?() {
+        self.isExistUser = self.existUser(userID: Auth.auth().currentUser!.uid)
+    }
     
     // ユーザ情報取得
     func existUser(userID: String) -> Bool {
@@ -41,10 +46,9 @@ class UserModel: ObservableObject {
     
     // ユーザ登録
     func save(userModel: UserModel) -> Void {
-        db.collection("users").document(userModel.user.uuid)
+        db.collection("users").document(userModel.user.id)
             .setData([
                 "id": userModel.user.id,
-                "uuid": userModel.user.uuid,
                 "name": userModel.user.userName
             ])
         print("ユーザ登録 “完了“(こっちは無くす予定)")

@@ -10,5 +10,4 @@ import SwiftUI
 struct UserItem: Identifiable {
     var id: String
     var userName: String
-    var uuid: String
 }

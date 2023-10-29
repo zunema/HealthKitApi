@@ -14,7 +14,7 @@ import FirebaseAuthUI
 struct UserCreateView: View {
     @Binding var uuidStr: String
     @State var name: String
-    @ObservedObject var userModel: UserModel = UserModel()
+    @ObservedObject var userModel: UserModel
     
     var body: some View {
         VStack {
