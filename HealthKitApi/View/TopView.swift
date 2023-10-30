@@ -15,13 +15,14 @@ struct TopView: View {
     
     @State var name: String = ""
     @State var userID = Auth.auth().currentUser!.uid
-    @ObservedObject var userModel: UserModel = UserModel()!
+    @ObservedObject var userModel: UserModel = UserModel()
+    @State var existUserBool = false
     
     var body: some View {
         NavigationView {
             VStack {
                 
-                if userModel.isExistUser {
+                if existUserBool {
                     NavigationLink {
                         HealthKitContentView()
                     } label: {
@@ -41,6 +42,9 @@ struct TopView: View {
                     }
                 }
 
+            }
+            .onAppear() {
+                existUserBool = userModel.existUser(userID: Auth.auth().currentUser!.uid)
             }
         }
     }

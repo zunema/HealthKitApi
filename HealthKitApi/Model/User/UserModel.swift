@@ -13,12 +13,9 @@ import FirebaseFirestore
 class UserModel: ObservableObject {
     let db = Firestore.firestore()
     @Published var user: UserItem = UserItem(id: "", userName: "")
-    @State var isExistUser: Bool = false
     
-    init?() {
-        isExistUser = existUser(userID: Auth.auth().currentUser!.uid)
-    }
     // ユーザ情報取得
+    // ここを非同期を待つ処理を入れられないか？
     func existUser(userID: String) -> Bool {
         var existUser:Bool = false
         let docRef = db.collection("users").document(userID)
