@@ -35,7 +35,7 @@ struct TopView: View {
                     }
                 } else {
                     NavigationLink {
-                        UserCreateView(uuidStr: $userID, name: name)
+                        UserCreateView(uuidStr: $userID, name: name, userModel: userModel)
                     } label: {
                         Text("新規登録をしてください")
                     }

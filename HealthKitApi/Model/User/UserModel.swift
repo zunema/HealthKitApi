@@ -13,12 +13,11 @@ import FirebaseFirestore
 class UserModel: ObservableObject {
     let db = Firestore.firestore()
     @Published var user: UserItem = UserItem(id: "", userName: "")
-    var isExistUser: Bool = false
+    @State var isExistUser: Bool = false
     
     init?() {
-        self.isExistUser = self.existUser(userID: Auth.auth().currentUser!.uid)
+        isExistUser = existUser(userID: Auth.auth().currentUser!.uid)
     }
-    
     // ユーザ情報取得
     func existUser(userID: String) -> Bool {
         var existUser:Bool = false
