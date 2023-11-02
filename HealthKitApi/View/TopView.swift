@@ -72,6 +72,7 @@ struct TopView: View {
     }
     
     func sampleUserCheck(uuid: String) async -> Bool {
+        // 試し
         sleep(5)
         return true
     }
