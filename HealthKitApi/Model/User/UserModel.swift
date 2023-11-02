@@ -15,19 +15,19 @@ class UserModel: ObservableObject {
     @Published var user: UserItem = UserItem(id: "", userName: "")
     
     // ユーザ情報取得
-    func existUser(userID: String) -> Bool {
-        var existUser:Bool = false
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                existUser = true
-                print("ユーザは存在します")
-            } else {
-                print("ユーザは存在しません")
-            }
-        }
-        return existUser
-    }
+//    func existUser(userID: String) async -> Bool {
+//        var existUser:Bool = false
+//        let docRef = db.collection("users").document(userID)
+//         docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                existUser = true
+//                print("ユーザは存在します")
+//            } else {
+//                print("ユーザは存在しません")
+//            }
+//        }
+//        return existUser
+//    }
     
     // 新しくユーザ登録を作る
     func create(uuidStr: String, name: String) -> Void {

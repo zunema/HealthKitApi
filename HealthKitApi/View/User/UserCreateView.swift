@@ -13,7 +13,7 @@ import FirebaseAuthUI
 // ユーザ作成ページ
 struct UserCreateView: View {
     @Binding var uuidStr: String
-    @State var name: String
+    @State var name: String = ""
     @ObservedObject var userModel: UserModel
     
     var body: some View {

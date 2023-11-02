@@ -13,14 +13,24 @@ import HealthKit
 
 struct TopView: View {
     
-    @State var name: String = ""
     @State var userID = Auth.auth().currentUser!.uid
     @ObservedObject var userModel: UserModel = UserModel()
     @State var existUserBool = false
+    let db = Firestore.firestore()
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                Button {
+                    Task {
+                        existUserBool = await sampleUserCheck(uuid: userID)
+                    }
+                    
+                } label: {
+                    Text("ようこそHelthKitApiへ...タップしてください。")
+                }
+
                 
                 if existUserBool {
                     NavigationLink {
@@ -36,7 +46,7 @@ struct TopView: View {
                     }
                 } else {
                     NavigationLink {
-                        UserCreateView(uuidStr: $userID, name: name, userModel: userModel)
+                        UserCreateView(uuidStr: $userID, userModel: userModel)
                     } label: {
                         Text("新規登録をしてください")
                     }
@@ -44,9 +54,26 @@ struct TopView: View {
 
             }
             .onAppear() {
-                existUserBool = userModel.existUser(userID: Auth.auth().currentUser!.uid)
+                userCheck(uuid: userID)
             }
         }
+    }
+    
+    func userCheck(uuid: String) -> Void {
+        let docRef = db.collection("users").document(userID)
+         docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                existUserBool = true
+                print("ユーザは存在します")
+            } else {
+                print("ユーザは存在しません")
+            }
+        }
+    }
+    
+    func sampleUserCheck(uuid: String) async -> Bool {
+        sleep(5)
+        return true
     }
     
 }
