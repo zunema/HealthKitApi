@@ -15,66 +15,44 @@ struct TopView: View {
     
     @State var userID = Auth.auth().currentUser!.uid
     @ObservedObject var userModel: UserModel = UserModel()
-    @State var existUserBool = false
+    @State var isExistUser = false
+    @State var isNotUser = false
     let db = Firestore.firestore()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                
                 Button {
                     Task {
-                        existUserBool = await sampleUserCheck(uuid: userID)
+                        isExistUser = await userCheck(uuid: userID)
+                        if isExistUser == false {
+                            isNotUser = true
+                        }
                     }
-                    
                 } label: {
                     Text("ようこそHelthKitApiへ...タップしてください。")
                 }
-
-                
-                if existUserBool {
-                    NavigationLink {
-                        HealthKitContentView()
-                    } label: {
-                        Text("healthKitへ")
-                    }
-                    
-                    NavigationLink {
-                        UserConfirmView(userModel: userModel)
-                    } label: {
-                        Text("ユーザ情報へ")
-                    }
-                } else {
-                    NavigationLink {
-                        UserCreateView(uuidStr: $userID, userModel: userModel)
-                    } label: {
-                        Text("新規登録をしてください")
-                    }
+                .navigationDestination(isPresented: $isExistUser) {
+                    HealthKitContentView()
                 }
-
-            }
-            .onAppear() {
-                userCheck(uuid: userID)
+                .navigationDestination(isPresented: $isNotUser) {
+                    UserCreateView(uuidStr: $userID, userModel: userModel)
+                }
             }
         }
     }
     
-    func userCheck(uuid: String) -> Void {
+    // ユーザの存在チェック
+    func userCheck(uuid: String) async -> Bool {
+        var isUserState = false
         let docRef = db.collection("users").document(userID)
-         docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                existUserBool = true
-                print("ユーザは存在します")
-            } else {
-                print("ユーザは存在しません")
-            }
+        do {
+            let doc = try await docRef.getDocument()
+            isUserState = doc.exists
+        } catch {
+            print("firestoreの取得処理でエラー発生")
         }
-    }
-    
-    func sampleUserCheck(uuid: String) async -> Bool {
-        // 試し
-        sleep(5)
-        return true
+        return isUserState
     }
     
 }
