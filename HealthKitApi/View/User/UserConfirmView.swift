@@ -32,7 +32,7 @@ struct UserConfirmView: View {
                 Button {
                     userModel.save(userModel: userModel)
                 } label: {
-                    Text("ユーザ情報の登録")
+                    Text("ユーザ情報の更新")
                 }
                 .disabled(userModel.user.userName.isEmpty)
                 .foregroundColor(userModel.user.userName.isEmpty ? Color.black : Color.white)

@@ -18,8 +18,8 @@ struct UserCreateView: View {
     
     var body: some View {
         VStack {
-            Text("ID確認")
-            Text(uuidStr)
+            
+            Text("ようこそ、ユーザ登録をして下さい。")
             
             TextField(text: $name) {
                 Text("名前を入力してください")

@@ -33,7 +33,7 @@ struct TopView: View {
                     Text("ようこそHelthKitApiへ...タップしてください。")
                 }
                 .navigationDestination(isPresented: $isExistUser) {
-                    HealthKitContentView()
+                    SubTopView()
                 }
                 .navigationDestination(isPresented: $isNotUser) {
                     UserCreateView(uuidStr: $userID, userModel: userModel)
