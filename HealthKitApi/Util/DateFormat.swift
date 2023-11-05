@@ -27,14 +27,14 @@ struct DateFormat {
         return fmt
     }
     
-    // 現在時刻の取得
+    /** 現在時刻の取得 */
     func getCurrentTime() -> Date {
         let now = Calendar.current.date(byAdding: .hour, value: 9, to: Date())!
         return now
     }
     
+    /** 挨拶メッセージを返す */
     func getGreetingMessage() -> String {
-        
         // 現在の時刻を生成
         let date = Date()
         let dateFormatter = DateFormatter()
