@@ -14,7 +14,7 @@ class UserModel: ObservableObject {
     let db = Firestore.firestore()
     @Published var user: UserItem = UserItem(id: "", userName: "")
     
-    // 新規作成
+    /** 新規作成 */
     func create(uuidStr: String, name: String) -> Void {
         db.collection("users").document(uuidStr)
             .setData([
@@ -24,7 +24,7 @@ class UserModel: ObservableObject {
         print("ユーザの新規作成 “完了“")
     }
     
-    // 更新
+    /** 更新 */
     func save(userModel: UserModel) -> Void {
         db.collection("users").document(userModel.user.id)
             .setData([
