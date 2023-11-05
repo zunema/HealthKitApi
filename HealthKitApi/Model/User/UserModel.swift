@@ -14,24 +14,24 @@ class UserModel: ObservableObject {
     let db = Firestore.firestore()
     @Published var user: UserItem = UserItem(id: "", userName: "")
     
-    // 新しくユーザ登録を作る
+    // 新規作成
     func create(uuidStr: String, name: String) -> Void {
         db.collection("users").document(uuidStr)
             .setData([
-                "uuid": uuidStr,
+                "id": uuidStr,
                 "name": name
             ])
-        print("ユーザ登録 “完了“")
+        print("ユーザの新規作成 “完了“")
     }
     
-    // ユーザ登録
+    // 更新
     func save(userModel: UserModel) -> Void {
         db.collection("users").document(userModel.user.id)
             .setData([
                 "id": userModel.user.id,
                 "name": userModel.user.userName
             ])
-        print("ユーザ登録 “完了“(こっちは無くす予定)")
+        print("ユーザデータの更新 “完了“")
     }
     
 }
