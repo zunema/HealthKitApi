@@ -12,7 +12,6 @@ struct SubTopView: View {
     
     @ObservedObject var userModel: UserModel = UserModel()
     @Binding var userItem: UserItem
-    let now = DateFormat().getCurrentTime()
     
     var body: some View {
         

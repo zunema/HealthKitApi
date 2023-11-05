@@ -35,9 +35,9 @@ struct DateFormat {
     
     /** 挨拶メッセージを返す */
     func getGreetingMessage() -> String {
-        // 現在の時刻を生成
         let date = Date()
         let dateFormatter = DateFormatter()
+        // 現在の時刻を生成
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HHmmss", options: 0, locale: Locale(identifier: "ja_JP"))
         let now = dateFormatter.string(from: date)
         var massage: String

@@ -17,7 +17,6 @@ struct HeartRateContentView: View {
     @Binding var wakeUpTime: Date
     
     let sleepReference = Firestore.firestore().collection("sleep")
-    
     let fmtDate: DateFormatter = DateFormat().getDate()
     let fmtHoursAndMinutes: DateFormatter = DateFormat().getHoursAndMinutes()
         
