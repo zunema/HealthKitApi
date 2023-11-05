@@ -14,10 +14,11 @@ import HealthKit
 struct TopView: View {
     
     @State var userID = Auth.auth().currentUser!.uid
-    @ObservedObject var userModel: UserModel = UserModel()
+    @ObservedObject var userModel = UserModel()
     @State var isExistUser = false
     @State var isNotUser = false
     let db = Firestore.firestore()
+    @State var userItem = UserItem(id: "", userName: "")
     
     var body: some View {
         NavigationStack {
@@ -33,7 +34,7 @@ struct TopView: View {
                     Text("ようこそHelthKitApiへ...タップしてください。")
                 }
                 .navigationDestination(isPresented: $isExistUser) {
-                    SubTopView()
+                    SubTopView(userItem: $userItem)
                 }
                 .navigationDestination(isPresented: $isNotUser) {
                     UserCreateView(uuidStr: $userID, userModel: userModel)
@@ -49,6 +50,11 @@ struct TopView: View {
         do {
             let doc = try await docRef.getDocument()
             isUserState = doc.exists
+            if doc.exists {
+                let data = doc.data()
+                userItem.id = (data?["uuid"] as AnyObject).description
+                userItem.userName = (data?["name"] as AnyObject).description
+            }
         } catch {
             print("firestoreの取得処理でエラー発生")
         }

@@ -13,7 +13,6 @@ import FirebaseAuthUI
 struct UserConfirmView: View {
     
     @ObservedObject var userModel: UserModel
-    @State var countText: String = "none"
     let userID = Auth.auth().currentUser!.uid
     
     var body: some View {

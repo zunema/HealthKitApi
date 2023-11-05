@@ -11,8 +11,13 @@ import SwiftUI
 struct SubTopView: View {
     
     @ObservedObject var userModel: UserModel = UserModel()
+    @Binding var userItem: UserItem
+    let now = DateFormat().getCurrentTime()
     
     var body: some View {
+        
+        Text("\(DateFormat().getGreetingMessage())")
+        Text("\(userItem.userName)さん")
         
         NavigationLink {
             HealthKitContentView()
