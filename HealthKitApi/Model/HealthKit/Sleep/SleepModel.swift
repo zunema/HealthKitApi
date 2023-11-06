@@ -14,7 +14,7 @@ class SleepModel: ObservableObject {
     @Published var dataSource: [SleepItem] = []
     let sleepReference = Firestore.firestore().collection("sleep")
     
-    // 睡眠データの保存
+    /** 睡眠データの保存 */
     func saveSleeps(dataSource:[SleepItem]) -> Void {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
             for item in dataSource {

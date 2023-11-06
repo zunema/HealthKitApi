@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/** 睡眠アイテム */
 struct SleepItem: Identifiable {
     var id: String
     var startDateTime: Date

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/** 心拍数アイテム */
 struct HeartRateItem: Identifiable {
     var id: String
     var datetime: Date

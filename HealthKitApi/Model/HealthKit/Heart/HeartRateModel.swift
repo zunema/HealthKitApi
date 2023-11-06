@@ -14,7 +14,7 @@ class HeartRateModel: ObservableObject {
     @Published var dataSource: [SleepItem] = []
     let heartRateReference = Firestore.firestore().collection("heartRate")
     
-    // 心拍数データの保存
+    /** 心拍数データの保存 */
     func saveHeartRates(dataSource:[HeartRateItem]) -> Void {
         Firestore.firestore().runTransaction({ (transaction, errorPointer) -> Any? in
             for item in dataSource {
