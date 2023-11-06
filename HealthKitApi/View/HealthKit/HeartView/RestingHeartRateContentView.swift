@@ -39,8 +39,9 @@ struct RestingHeartRateContentView: View {
                     } else {
                         ForEach( healthKitModel.restingHeartRateItem ){ item in
                             HStack{
-                                Text("カウント: \(item.count)")
-                                Text("タイム: \(fmtDate.string(from: item.datetime))")
+                                Text("心拍数: \(item.count)")
+                                Text(fmtDate.string(from: item.datetime))
+                                Text(fmtHoursAndMinutes.string(from: item.datetime))
                             }
                         }
                     }

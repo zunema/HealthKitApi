@@ -91,7 +91,7 @@ class HealthKitModel: ObservableObject {
                     let listItem = HeartRateItem(
                         id: item.uuid.uuidString,
                         datetime: item.endDate,
-                        count: String(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
+                        count: Int(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
                     )
                     DispatchQueue.main.async {
                         self.heartRateItem.append(listItem)
@@ -117,7 +117,7 @@ class HealthKitModel: ObservableObject {
                     let listItem = RestingHeartRateItem(
                         id: item.uuid.uuidString,
                         datetime: item.endDate,
-                        count: String(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
+                        count: Int(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
                     )
                     DispatchQueue.main.async {
                         self.restingHeartRateItem.append(listItem)

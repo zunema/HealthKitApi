@@ -11,5 +11,5 @@ import SwiftUI
 struct HeartRateItem: Identifiable {
     var id: String
     var datetime: Date
-    var count: String
+    var count: Int
 }
