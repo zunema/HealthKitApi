@@ -31,6 +31,7 @@
 		E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688702AB8225A004A88AB /* SleepContentView.swift */; };
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
 		E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7DDAA2AD83958008CF62A /* DateFormat.swift */; };
+		E9EABBA32AF8B4630057E665 /* RestingHeartRateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */; };
 		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		E9E688702AB8225A004A88AB /* SleepContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepContentView.swift; sourceTree = "<group>"; };
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
 		E9E7DDAA2AD83958008CF62A /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingHeartRateItem.swift; sourceTree = "<group>"; };
 		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				E9C3853C2AD3C7E400796313 /* UserModel.swift */,
-				E9C3853E2AD3C84400796313 /* UserItem.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -168,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				E9DB2A272AD25EC9003D33B2 /* SleepModel.swift */,
-				E9E688752AB82CAD004A88AB /* SleepItem.swift */,
 			);
 			path = Sleep;
 			sourceTree = "<group>";
@@ -176,7 +176,6 @@
 		E9DB2A2B2AD25FFE003D33B2 /* Heart */ = {
 			isa = PBXGroup;
 			children = (
-				E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */,
 				E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */,
 			);
 			path = Heart;
@@ -185,9 +184,9 @@
 		E9DB2A2E2AD29E07003D33B2 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
-				E9E688702AB8225A004A88AB /* SleepContentView.swift */,
+				E9EABBA02AF8B38A0057E665 /* HeartView */,
+				E9EABB9F2AF8B35A0057E665 /* SleepView */,
 				E9D79BC52AA257CD00C69FE1 /* HealthKitContentView.swift */,
-				E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */,
 			);
 			path = HealthKit;
 			sourceTree = "<group>";
@@ -204,11 +203,9 @@
 		E9E688722AB82463004A88AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9EABBA12AF8B3C50057E665 /* Index */,
 				E9DB2A342AD2A447003D33B2 /* User */,
 				E9DB2A2E2AD29E07003D33B2 /* HealthKit */,
-				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
-				E9FABFC22AC457BC00F3B1DA /* TopView.swift */,
-				E91EE3D92AF68974007EFC0D /* SubTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +220,7 @@
 		E9E688742AB82497004A88AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9EABB9B2AF8B2480057E665 /* Item */,
 				E9C3853B2AD3C7BA00796313 /* User */,
 				E9DB2A292AD25EE8003D33B2 /* HealthKit */,
 			);
@@ -235,6 +233,67 @@
 				E9E7DDAA2AD83958008CF62A /* DateFormat.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		E9EABB9B2AF8B2480057E665 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				E9EABB9D2AF8B2CF0057E665 /* SleepsItem */,
+				E9EABB9C2AF8B2B80057E665 /* HeartsItem */,
+				E9EABB9E2AF8B3070057E665 /* UsersItem */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		E9EABB9C2AF8B2B80057E665 /* HeartsItem */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */,
+				E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */,
+			);
+			path = HeartsItem;
+			sourceTree = "<group>";
+		};
+		E9EABB9D2AF8B2CF0057E665 /* SleepsItem */ = {
+			isa = PBXGroup;
+			children = (
+				E9E688752AB82CAD004A88AB /* SleepItem.swift */,
+			);
+			path = SleepsItem;
+			sourceTree = "<group>";
+		};
+		E9EABB9E2AF8B3070057E665 /* UsersItem */ = {
+			isa = PBXGroup;
+			children = (
+				E9C3853E2AD3C84400796313 /* UserItem.swift */,
+			);
+			path = UsersItem;
+			sourceTree = "<group>";
+		};
+		E9EABB9F2AF8B35A0057E665 /* SleepView */ = {
+			isa = PBXGroup;
+			children = (
+				E9E688702AB8225A004A88AB /* SleepContentView.swift */,
+			);
+			path = SleepView;
+			sourceTree = "<group>";
+		};
+		E9EABBA02AF8B38A0057E665 /* HeartView */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */,
+			);
+			path = HeartView;
+			sourceTree = "<group>";
+		};
+		E9EABBA12AF8B3C50057E665 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				E91EE3D92AF68974007EFC0D /* SubTopView.swift */,
+				E9FABFC22AC457BC00F3B1DA /* TopView.swift */,
+				E9B3E80D2A95045700D5D502 /* ContentView.swift */,
+			);
+			path = Index;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +419,7 @@
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */,
+				E9EABBA32AF8B4630057E665 /* RestingHeartRateItem.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
 				E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */,

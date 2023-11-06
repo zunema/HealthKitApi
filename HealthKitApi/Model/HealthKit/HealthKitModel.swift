@@ -14,6 +14,7 @@ class HealthKitModel: ObservableObject {
     
     @Published var sleepItem: [SleepItem] = []
     @Published var heartRateItem: [HeartRateItem] = []
+    @Published var restingHeartRate: [RestingHeartRateItem] = []
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
@@ -47,7 +48,7 @@ class HealthKitModel: ObservableObject {
     }
     
     // 睡眠データの取得
-    func getSleepAnalysis(fallingAsleepTime: Date, wakeUpTime: Date)  {
+    func getSleepInfo(fallingAsleepTime: Date, wakeUpTime: Date) {
         let query = HKSampleQuery(sampleType: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!,
                                   predicate: HKQuery.predicateForSamples(withStart: fallingAsleepTime, end: wakeUpTime, options: []),
                                   limit: HKObjectQueryNoLimit,
@@ -74,7 +75,7 @@ class HealthKitModel: ObservableObject {
     }
     
     // 心拍数を取得
-    func getHeartRateAnalysis(startTime: Date, endTime: Date)  {
+    func getHeartRateInfo(startTime: Date, endTime: Date) {
         let query = HKSampleQuery(sampleType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
                                         predicate: HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: []),
                                         limit: HKObjectQueryNoLimit,
@@ -92,6 +93,32 @@ class HealthKitModel: ObservableObject {
                     )
                     DispatchQueue.main.async {
                         self.heartRateItem.append(listItem)
+                    }
+                }
+            }
+        }
+        healthStore.execute(query)
+    }
+    
+    // 安静時心拍数を取得
+    func getRestingHeartRateInfo(startTime: Date, endTime: Date) {
+        let query = HKSampleQuery(sampleType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.restingHeartRate)!,
+                                        predicate: HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: []),
+                                        limit: HKObjectQueryNoLimit,
+                                        sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
+            
+            guard error == nil else { print("error"); return }
+            
+            if let resultDatas = results as? [HKQuantitySample] {
+                print("安静時心拍数データの取得“成功“")
+                for item in resultDatas {
+                    let listItem = RestingHeartRateItem(
+                        id: item.uuid.uuidString,
+                        datetime: item.endDate,
+                        count: String(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
+                    )
+                    DispatchQueue.main.async {
+                        self.restingHeartRate.append(listItem)
                     }
                 }
             }
