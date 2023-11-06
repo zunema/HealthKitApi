@@ -47,7 +47,7 @@ struct HeartRateContentView: View {
                 }
             }
             .onAppear {
-                healthKitModel.getHeartRateAnalysis(startTime: fallingAsleepTime, endTime: wakeUpTime)
+                healthKitModel.getHeartRateInfo(startTime: fallingAsleepTime, endTime: wakeUpTime)
             }
             .onDisappear {
                 Task.detached { @MainActor in
