@@ -15,6 +15,7 @@ class HealthKitModel: ObservableObject {
     @Published var sleepItem: [SleepItem] = []
     @Published var heartRateItem: [HeartRateItem] = []
     @Published var restingHeartRateItem: [RestingHeartRateItem] = []
+    @Published var activeEnergyBurnedItem: [ActiveEnergyBurnedItem] = []
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
@@ -121,6 +122,33 @@ class HealthKitModel: ObservableObject {
                     )
                     DispatchQueue.main.async {
                         self.restingHeartRateItem.append(listItem)
+                    }
+                }
+            }
+        }
+        healthStore.execute(query)
+    }
+    
+    /** アクティブエネルギーを取得 */
+    func getActiveEnergyBurned(startTime: Date, endTime: Date) {
+        let query = HKSampleQuery(sampleType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
+                                        predicate: HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: []),
+                                        limit: HKObjectQueryNoLimit,
+                                        sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
+            
+            guard error == nil else { print("error"); return }
+            
+            if let resultDatas = results as? [HKQuantitySample] {
+                print("アクティブエネルギーデータの取得“成功“")
+                for item in resultDatas {
+                    let listItem = ActiveEnergyBurnedItem(
+                        id: item.uuid.uuidString,
+                        startDateTime: item.startDate,
+                        endDateTime: item.endDate,
+                        kcal: Double(item.quantity.doubleValue(for: HKUnit(from: "kcal")))
+                    )
+                    DispatchQueue.main.async {
+                        self.activeEnergyBurnedItem.append(listItem)
                     }
                 }
             }
