@@ -12,9 +12,10 @@ import HealthKit
 // このViewで各ヘルスデータへアクセスする
 struct HealthKitContentView: View {
     
-    @ObservedObject var healthKitModel: HealthKitModel = HealthKitModel()!
-    @ObservedObject var sleepModel: SleepModel = SleepModel()
-    @ObservedObject var heartRateModel: HeartRateModel = HeartRateModel()
+    @ObservedObject var healthKitModel = HealthKitModel()!
+    @ObservedObject var sleepModel = SleepModel()
+    @ObservedObject var heartRateModel = HeartRateModel()
+    @ObservedObject var restingHeartRateModel = RestingHeartRateModel()
     @State private var fallingAsleepTime = Date()
     @State private var wakeUpTime = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
@@ -39,6 +40,9 @@ struct HealthKitContentView: View {
                 }
                 NavigationLink(destination: HeartRateContentView(healthKitModel: healthKitModel, heartRateModel: heartRateModel, fallingAsleepTime: $fallingAsleepTime, wakeUpTime: $wakeUpTime)) {
                     Text("心拍数の取得情報を確認")
+                }
+                NavigationLink(destination: RestingHeartRateContentView(healthKitModel: healthKitModel, restingHeartRateModel: restingHeartRateModel, fallingAsleepTime: $fallingAsleepTime, wakeUpTime: $wakeUpTime)) {
+                    Text("安静時心拍数の取得情報を確認")
                 }
             }
 

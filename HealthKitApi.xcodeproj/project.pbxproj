@@ -32,6 +32,8 @@
 		E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E688752AB82CAD004A88AB /* SleepItem.swift */; };
 		E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E7DDAA2AD83958008CF62A /* DateFormat.swift */; };
 		E9EABBA32AF8B4630057E665 /* RestingHeartRateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */; };
+		E9EABBA52AF8BA760057E665 /* RestingHeartRateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EABBA42AF8BA760057E665 /* RestingHeartRateContentView.swift */; };
+		E9EABBA72AF8BADB0057E665 /* RestingHeartRateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EABBA62AF8BADB0057E665 /* RestingHeartRateModel.swift */; };
 		E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FABFC22AC457BC00F3B1DA /* TopView.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		E9E688752AB82CAD004A88AB /* SleepItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepItem.swift; sourceTree = "<group>"; };
 		E9E7DDAA2AD83958008CF62A /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingHeartRateItem.swift; sourceTree = "<group>"; };
+		E9EABBA42AF8BA760057E665 /* RestingHeartRateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingHeartRateContentView.swift; sourceTree = "<group>"; };
+		E9EABBA62AF8BADB0057E665 /* RestingHeartRateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingHeartRateModel.swift; sourceTree = "<group>"; };
 		E9FABFC22AC457BC00F3B1DA /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */,
+				E9EABBA62AF8BADB0057E665 /* RestingHeartRateModel.swift */,
 			);
 			path = Heart;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */,
+				E9EABBA42AF8BA760057E665 /* RestingHeartRateContentView.swift */,
 			);
 			path = HeartView;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				E9EABBA32AF8B4630057E665 /* RestingHeartRateItem.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
+				E9EABBA72AF8BADB0057E665 /* RestingHeartRateModel.swift in Sources */,
 				E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */,
 				E9DB2A2D2AD26041003D33B2 /* HeartRateItem.swift in Sources */,
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,
@@ -430,6 +437,7 @@
 				E9E688712AB8225A004A88AB /* SleepContentView.swift in Sources */,
 				E9FABFC32AC457BC00F3B1DA /* TopView.swift in Sources */,
 				E9C3853D2AD3C7E400796313 /* UserModel.swift in Sources */,
+				E9EABBA52AF8BA760057E665 /* RestingHeartRateContentView.swift in Sources */,
 				E9B3E81C2A95086600D5D502 /* FirebaseAuthStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

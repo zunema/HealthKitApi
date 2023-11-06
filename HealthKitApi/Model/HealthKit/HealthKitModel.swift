@@ -14,18 +14,20 @@ class HealthKitModel: ObservableObject {
     
     @Published var sleepItem: [SleepItem] = []
     @Published var heartRateItem: [HeartRateItem] = []
-    @Published var restingHeartRate: [RestingHeartRateItem] = []
+    @Published var restingHeartRateItem: [RestingHeartRateItem] = []
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
     var permissionFlg: Bool = false
     let sleepReference = Firestore.firestore().collection("sleep")
     
-    // 消費エネルギー、サイクリング、ウォーキング、ランニングの距離、心拍数、睡眠の共有と読み出しに関する許可要求設定
+    // 消費エネルギー、サイクリング、ウォーキング/ランニングの距離、心拍数、安静時心拍数、睡眠
+    // ↑の共有と読み出しに関する許可要求設定
     let allTypes = Set([HKObjectType.workoutType(),
                         HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
                         HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
                         HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
                         HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                        HKObjectType.quantityType(forIdentifier: .restingHeartRate)!,
                         HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!])
     
     init?() {
@@ -118,7 +120,7 @@ class HealthKitModel: ObservableObject {
                         count: String(item.quantity.doubleValue(for: HKUnit(from: "count/min")))
                     )
                     DispatchQueue.main.async {
-                        self.restingHeartRate.append(listItem)
+                        self.restingHeartRateItem.append(listItem)
                     }
                 }
             }

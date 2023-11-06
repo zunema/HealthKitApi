@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 class HeartRateModel: ObservableObject {
     
-    @Published var dataSource: [SleepItem] = []
     let heartRateReference = Firestore.firestore().collection("heartRate")
     
     /** 心拍数データの保存 */

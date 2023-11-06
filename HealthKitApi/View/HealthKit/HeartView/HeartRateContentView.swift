@@ -51,7 +51,7 @@ struct HeartRateContentView: View {
             }
             .onDisappear {
                 Task.detached { @MainActor in
-                    healthKitModel.sleepItem.removeAll()
+                    healthKitModel.heartRateItem.removeAll()
                 }
             }
         }
