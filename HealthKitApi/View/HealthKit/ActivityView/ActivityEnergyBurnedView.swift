@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-// アクティブエネルギーデータの確認ページ
+/** アクティブエネルギーデータの確認ページ */
 struct ActivityEnergyBurnedView: View {
     
     @ObservedObject var healthKitModel: HealthKitModel
