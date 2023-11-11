@@ -24,7 +24,7 @@ struct RestingHeartRateContentView: View {
         NavigationView {
             VStack {
                 Text("取得した安静時心拍数データの数: \(healthKitModel.restingHeartRateItem.count)")
-                if healthKitModel.heartRateItem.count == 0 {
+                if healthKitModel.restingHeartRateItem.count == 0 {
                     Text("安静時心拍数データなし")
                 } else {
                     Button {

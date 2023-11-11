@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		433067FD08318FD43A6CB15F /* Pods_HealthKitApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC7FEC81F59724B31832EC7 /* Pods_HealthKitApi.framework */; };
 		E91EE3DA2AF68975007EFC0D /* SubTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EE3D92AF68974007EFC0D /* SubTopView.swift */; };
+		E922A29E2AFF84A5009C9452 /* HeartRateVariabilitySDNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = E922A29D2AFF84A5009C9452 /* HeartRateVariabilitySDNN.swift */; };
+		E922A2A02AFF86C1009C9452 /* HeartRateVariabilitySDNNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E922A29F2AFF86C1009C9452 /* HeartRateVariabilitySDNNView.swift */; };
+		E922A2A22AFF870E009C9452 /* HeartRateVariabilitySDNNModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E922A2A12AFF870E009C9452 /* HeartRateVariabilitySDNNModel.swift */; };
 		E95844AC2AE4D8230034EF83 /* UserCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95844AB2AE4D8230034EF83 /* UserCreateView.swift */; };
 		E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96CA9962A96599E002CBD44 /* UserConfirmView.swift */; };
 		E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3E80B2A95045700D5D502 /* HealthKitApiApp.swift */; };
@@ -45,6 +48,9 @@
 		7179B2B34C48B1E4CA87841F /* Pods-HealthKitApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.debug.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.debug.xcconfig"; sourceTree = "<group>"; };
 		C5D2C371A4DABD0C2EFC84A3 /* Pods-HealthKitApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthKitApi.release.xcconfig"; path = "Target Support Files/Pods-HealthKitApi/Pods-HealthKitApi.release.xcconfig"; sourceTree = "<group>"; };
 		E91EE3D92AF68974007EFC0D /* SubTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTopView.swift; sourceTree = "<group>"; };
+		E922A29D2AFF84A5009C9452 /* HeartRateVariabilitySDNN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateVariabilitySDNN.swift; sourceTree = "<group>"; };
+		E922A29F2AFF86C1009C9452 /* HeartRateVariabilitySDNNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateVariabilitySDNNView.swift; sourceTree = "<group>"; };
+		E922A2A12AFF870E009C9452 /* HeartRateVariabilitySDNNModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateVariabilitySDNNModel.swift; sourceTree = "<group>"; };
 		E95844AB2AE4D8230034EF83 /* UserCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreateView.swift; sourceTree = "<group>"; };
 		E96CA9952A965528002CBD44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E96CA9962A96599E002CBD44 /* UserConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmView.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 			children = (
 				E9DB2A312AD29EA0003D33B2 /* HeartRateModel.swift */,
 				E9EABBA62AF8BADB0057E665 /* RestingHeartRateModel.swift */,
+				E922A2A12AFF870E009C9452 /* HeartRateVariabilitySDNNModel.swift */,
 			);
 			path = Heart;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 			children = (
 				E9DB2A2C2AD26041003D33B2 /* HeartRateItem.swift */,
 				E9EABBA22AF8B4630057E665 /* RestingHeartRateItem.swift */,
+				E922A29D2AFF84A5009C9452 /* HeartRateVariabilitySDNN.swift */,
 			);
 			path = HeartsItem;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 			children = (
 				E9DB2A2F2AD29E43003D33B2 /* HeartRateContentView.swift */,
 				E9EABBA42AF8BA760057E665 /* RestingHeartRateContentView.swift */,
+				E922A29F2AFF86C1009C9452 /* HeartRateVariabilitySDNNView.swift */,
 			);
 			path = HeartView;
 			sourceTree = "<group>";
@@ -458,14 +467,17 @@
 				E91EE3DA2AF68975007EFC0D /* SubTopView.swift in Sources */,
 				E95844AC2AE4D8230034EF83 /* UserCreateView.swift in Sources */,
 				E9B3E80C2A95045700D5D502 /* HealthKitApiApp.swift in Sources */,
+				E922A2A02AFF86C1009C9452 /* HeartRateVariabilitySDNNView.swift in Sources */,
 				E96CA9972A96599E002CBD44 /* UserConfirmView.swift in Sources */,
 				E9E7DDAB2AD83959008CF62A /* DateFormat.swift in Sources */,
 				E9EABBA32AF8B4630057E665 /* RestingHeartRateItem.swift in Sources */,
 				E9D79BC62AA257CD00C69FE1 /* HealthKitContentView.swift in Sources */,
 				E9DB2A302AD29E43003D33B2 /* HeartRateContentView.swift in Sources */,
 				E9EABBA72AF8BADB0057E665 /* RestingHeartRateModel.swift in Sources */,
+				E922A29E2AFF84A5009C9452 /* HeartRateVariabilitySDNN.swift in Sources */,
 				E9C3853F2AD3C84400796313 /* UserItem.swift in Sources */,
 				E9DB2A2D2AD26041003D33B2 /* HeartRateItem.swift in Sources */,
+				E922A2A22AFF870E009C9452 /* HeartRateVariabilitySDNNModel.swift in Sources */,
 				E9E688762AB82CAD004A88AB /* SleepItem.swift in Sources */,
 				E9DB2A282AD25EC9003D33B2 /* SleepModel.swift in Sources */,
 				E9D79BCD2AA331BD00C69FE1 /* HealthKitModel.swift in Sources */,

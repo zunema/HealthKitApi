@@ -15,6 +15,7 @@ class HealthKitModel: ObservableObject {
     @Published var sleepItem: [SleepItem] = []
     @Published var heartRateItem: [HeartRateItem] = []
     @Published var restingHeartRateItem: [RestingHeartRateItem] = []
+    @Published var heartRateVariabilitySDNNItem: [HeartRateVariabilitySDNNItem] = []
     @Published var activeEnergyBurnedItem: [ActiveEnergyBurnedItem] = []
     var healthStore: HKHealthStore!
     var permissionMessage: String = ""
@@ -29,6 +30,7 @@ class HealthKitModel: ObservableObject {
                         HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
                         HKObjectType.quantityType(forIdentifier: .heartRate)!,
                         HKObjectType.quantityType(forIdentifier: .restingHeartRate)!,
+                        HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
                         HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!])
     
     init?() {
@@ -122,6 +124,33 @@ class HealthKitModel: ObservableObject {
                     )
                     DispatchQueue.main.async {
                         self.restingHeartRateItem.append(listItem)
+                    }
+                }
+            }
+        }
+        healthStore.execute(query)
+    }
+    
+    /** 心拍変動を取得 */
+    func getHeartRateVariabilitySDNNInfo(startTime: Date, endTime: Date) {
+        let query = HKSampleQuery(sampleType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRateVariabilitySDNN)!,
+                                        predicate: HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: []),
+                                        limit: HKObjectQueryNoLimit,
+                                        sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)]){ (query, results, error) in
+            
+            guard error == nil else { print("error"); return }
+            
+            if let resultDatas = results as? [HKQuantitySample] {
+                print("心拍変動データの取得“成功“")
+                for item in resultDatas {
+                    let listItem = HeartRateVariabilitySDNNItem(
+                        id: item.uuid.uuidString,
+                        startTime: item.startDate,
+                        endTime: item.endDate,
+                        count: Int(item.quantity.doubleValue(for: HKUnit(from: "ms")))
+                    )
+                    DispatchQueue.main.async {
+                        self.heartRateVariabilitySDNNItem.append(listItem)
                     }
                 }
             }
