@@ -10,13 +10,12 @@ import SwiftUI
 // サブトップページ
 struct SubTopView: View {
     
-    @ObservedObject var userModel: UserModel = UserModel()
-    @Binding var userItem: UserItem
+    @ObservedObject var userModel: UserModel
     
     var body: some View {
         
         Text("\(DateFormat().getGreetingMessage())")
-        Text("\(userItem.userName)さん")
+        Text("\(userModel.user.userName)さん")
         
         NavigationLink {
             HealthKitContentView()

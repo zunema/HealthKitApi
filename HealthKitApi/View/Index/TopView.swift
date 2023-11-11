@@ -18,7 +18,6 @@ struct TopView: View {
     @State var isExistUser = false
     @State var isNotUser = false
     let db = Firestore.firestore()
-    @State var userItem = UserItem(id: "", userName: "")
     
     var body: some View {
         NavigationStack {
@@ -34,7 +33,7 @@ struct TopView: View {
                     Text("ようこそHelthKitApiへ...タップしてください。")
                 }
                 .navigationDestination(isPresented: $isExistUser) {
-                    SubTopView(userItem: $userItem)
+                    SubTopView(userModel: userModel)
                 }
                 .navigationDestination(isPresented: $isNotUser) {
                     UserCreateView(uuidStr: $userID, userModel: userModel)
@@ -52,8 +51,8 @@ struct TopView: View {
             isUserState = doc.exists
             if doc.exists {
                 let data = doc.data()
-                userItem.id = (data?["uuid"] as AnyObject).description
-                userItem.userName = (data?["name"] as AnyObject).description
+                userModel.user.id = (data?["uuid"] as AnyObject).description
+                userModel.user.userName = (data?["name"] as AnyObject).description
             }
         } catch {
             print("firestoreの取得処理でエラー発生")
