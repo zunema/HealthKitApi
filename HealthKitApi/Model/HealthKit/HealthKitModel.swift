@@ -105,7 +105,7 @@ class HealthKitModel: ObservableObject {
         healthStore.execute(query)
     }
     
-    // 安静時心拍数を取得
+    /** 安静時心拍数を取得 */
     func getRestingHeartRateInfo(startTime: Date, endTime: Date) {
         let query = HKSampleQuery(sampleType: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.restingHeartRate)!,
                                         predicate: HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: []),
