@@ -52,7 +52,7 @@ class HealthKitModel: ObservableObject {
         }
     }
     
-    // 睡眠データの取得
+    /** 睡眠データの取得 */
     func getSleepInfo(fallingAsleepTime: Date, wakeUpTime: Date) {
         let query = HKSampleQuery(sampleType: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!,
                                   predicate: HKQuery.predicateForSamples(withStart: fallingAsleepTime, end: wakeUpTime, options: []),
