@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import HealthKit
 
-// このViewで各ヘルスデータへアクセスする
+/** このViewで各ヘルスデータへアクセスする */
 struct HealthKitContentView: View {
     
     @ObservedObject var healthKitModel = HealthKitModel()!
