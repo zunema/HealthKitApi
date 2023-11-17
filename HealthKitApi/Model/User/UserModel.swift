@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuthUI
 import FirebaseFirestore
 
-// ユーザモデル
+/**  ユーザモデル */
 class UserModel: ObservableObject {
     let db = Firestore.firestore()
     @Published var user: UserItem = UserItem(id: "", userName: "")
