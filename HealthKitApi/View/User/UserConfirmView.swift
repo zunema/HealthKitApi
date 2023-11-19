@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuthUI
 
-// ユーザ情報のページ
+/** ユーザ情報のページ */
 struct UserConfirmView: View {
     
     @ObservedObject var userModel: UserModel
