@@ -10,7 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseAuthUI
 
-// ユーザ作成ページ
+/** ユーザ作成ページ */
 struct UserCreateView: View {
     @Binding var uuidStr: String
     @State var name: String = ""
