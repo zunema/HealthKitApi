@@ -43,7 +43,7 @@ struct DateFormat {
         var massage: String
         
         if now.compare("04:00:00") == ComparisonResult.orderedDescending && now.compare("09:00:00") == ComparisonResult.orderedAscending {
-            massage = "おはございます"
+            massage = "おはようございます"
         } else if (now.compare("09:01:00") == ComparisonResult.orderedDescending && now.compare("18:00:00") == ComparisonResult.orderedAscending) {
             massage = "こんにちは"
         } else if (now.compare("018:01:00") == ComparisonResult.orderedDescending && now.compare("24:00:00") == ComparisonResult.orderedAscending) {
