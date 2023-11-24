@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/** ユーザーアイテム */
 struct UserItem: Identifiable {
     var id: String
     var userName: String
