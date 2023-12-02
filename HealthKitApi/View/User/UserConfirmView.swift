@@ -23,7 +23,7 @@ struct UserConfirmView: View {
                 Text(userModel.user.userName)
             
                 TextField(text: $userModel.user.userName) {
-                    Text("新しい名前")
+                    Text("新しい名前を入力して下さい")
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
