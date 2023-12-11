@@ -19,7 +19,7 @@ struct UserConfirmView: View {
         NavigationView {
             VStack {
                 
-                Text("現在の名前")
+                Text("現在の名前↓")
                 Text(userModel.user.userName)
             
                 TextField(text: $userModel.user.userName) {
